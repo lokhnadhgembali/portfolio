@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Resume of Gembali Lokhnadh - B.Tech CSE student specializing in Data Analytics, Machine Learning, and Web Development.">
+    <title>Resume | Gembali Lokhnadh</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* ===== RESUME PAGE WRAPPER ===== */
+        .resume-outer {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* ===== RESUME HEADER CARD ===== */
+        .resume-header-card {
+            background: rgba(10, 10, 10, 0.97);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: var(--radius-xl);
+            padding: 36px 48px 28px;
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+            position: relative;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .resume-header-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: var(--gradient-main);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        }
+
+        .rh-name {
+            font-family: var(--font-heading);
+            font-size: 2.2rem;
+            font-weight: 800;
+            background: var(--gradient-main);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 14px;
+            line-height: 1.1;
+        }
+
+        .rh-contacts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 0.84rem;
+            color: var(--text-muted);
+        }
+
+        .rh-contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .rh-contact-item svg {
+            flex-shrink: 0;
+            color: var(--accent-cyan);
+        }
+
+        .rh-contact-item a {
+            color: var(--accent-cyan);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .rh-contact-item a:hover { opacity: 0.75; }
+
+        /* ===== TABS NAV ===== */
+        .resume-tabs-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 24px;
+        }
+
+        .rtab-btn {
+            padding: 8px 20px;
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.09);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            font-family: var(--font-body);
+            font-size: 0.84rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .rtab-btn:hover {
+            background: rgba(6, 182, 212, 0.12);
+            border-color: rgba(6, 182, 212, 0.3);
+            color: var(--accent-cyan);
+        }
+
+        .rtab-btn.active {
+            background: var(--gradient-main);
+            border-color: transparent;
+            color: white;
+            font-weight: 600;
+            box-shadow: 0 4px 20px rgba(249,115,22,0.3);
+        }
+
+        /* ===== TAB PANELS ===== */
+        .resume-tab-panel {
+            display: none;
+        }
+
+        .resume-tab-panel.active {
+            display: block;
+            animation: fadeInUp 0.35s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== SECTION CARD ===== */
+        .rs-card {
+            background: rgba(10, 10, 10, 0.97);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: var(--radius-xl);
+            padding: 32px 40px;
+            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        .rs-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: var(--gradient-main);
+            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+        }
+
+        /* ===== SECTION LABEL ===== */
+        .rs-section-label {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-cyan);
+            margin-bottom: 14px;
+        }
+
+        /* ===== SKILLS SECTION ===== */
+        .rs-skill-group {
+            margin-bottom: 20px;
+        }
+
+        .rs-skill-group:last-child { margin-bottom: 0; }
+
+        .rs-skill-group-title {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .skill-entry {
+            display: flex;
+            gap: 0;
+            margin-bottom: 5px;
+            font-size: 0.86rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        .skill-entry::before {
+            content: '—';
+            color: var(--accent-cyan);
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        /* ===== PROJECTS / TRAINING ITEMS ===== */
+        .rs-item {
+            margin-bottom: 22px;
+            padding-bottom: 22px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .rs-item:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .rs-item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 6px;
+        }
+
+        .rs-item-title {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            line-height: 1.4;
+        }
+
+        .rs-item-title a {
+            color: var(--accent-orange);
+            font-size: 0.8rem;
+            margin-left: 6px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .rs-item-title a:hover { opacity: 0.8; }
+
+        .rs-item-date {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            flex-shrink: 0;
+            font-style: italic;
+        }
+
+        .rs-item-sub {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+            font-style: italic;
+        }
+
+        .rs-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 8px;
+        }
+
+        .rs-bullets li {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin-bottom: 4px;
+            padding-left: 16px;
+            position: relative;
+        }
+
+        .rs-bullets li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+        }
+
+        .rs-bullets li strong { color: var(--text-primary); font-weight: 600; }
+
+        .rs-techstack {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-top: 6px;
+        }
+
+        .rs-techstack strong { color: var(--text-primary); font-weight: 600; }
+
+        /* ===== CERTIFICATES ===== */
+        .cert-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 10px;
+            font-size: 0.85rem;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .cert-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .cert-row-left {
+            display: flex;
+            align-items: center;
+            gap: 0;
+            color: var(--text-secondary);
+        }
+
+        .cert-row-left::before {
+            content: '•';
+            color: var(--accent-cyan);
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .cert-row-left a {
+            color: var(--accent-orange);
+            margin-left: 5px;
+            font-weight: 600;
+            font-size: 0.78rem;
+            text-decoration: none;
+        }
+
+        .cert-row-date {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            font-style: italic;
+            flex-shrink: 0;
+        }
+
+        /* ===== EDUCATION ===== */
+        .edu-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .edu-row:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .edu-row-left { flex: 1; }
+
+        .edu-inst {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--accent-cyan);
+            margin-bottom: 2px;
+        }
+
+        .edu-degree {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            font-style: italic;
+        }
+
+        .edu-row-right {
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        .edu-location {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        .edu-date {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-top: 2px;
+        }
+
+        /* ===== ACHIEVEMENTS ===== */
+        .achieve-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.84rem;
+            margin-bottom: 10px;
+        }
+
+        .achieve-row-left {
+            display: flex;
+            align-items: flex-start;
+            color: var(--text-secondary);
+            line-height: 1.65;
+        }
+
+        .achieve-row-left::before {
+            content: '•';
+            color: var(--accent-cyan);
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .achieve-row-left a {
+            color: var(--accent-orange);
+            margin-left: 5px;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .achieve-row-date {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            font-style: italic;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* ===== DOWNLOAD BUTTON ===== */
+        .download-section {
+            text-align: center;
+            padding: 30px 0 10px;
+        }
+
+        .btn-download {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 38px;
+            background: var(--gradient-main);
+            color: white;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 6px 30px rgba(249, 115, 22, 0.35);
+            transition: all 0.3s ease;
+        }
+
+        .btn-download:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(249, 115, 22, 0.5);
+            color: white;
+        }
+
+        .btn-download:active { transform: translateY(-1px); }
+
+        .download-hint {
+            margin-top: 10px;
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        /* ===== PRINT ===== */
+        @media print {
+            @page { size: A4 portrait; margin: 6mm 10mm; }
+
+            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-sizing: border-box !important; }
+
+            html, body { background: white !important; color: #111 !important; font-size: 7pt !important; line-height: 1.3 !important; overflow: visible !important; }
+
+            .navbar, .footer, .bg-grid, .bg-glow, .download-section,
+            .section-header, .resume-tabs-nav { display: none !important; }
+
+            .page-content { padding-top: 0 !important; }
+            section { padding: 0 !important; margin: 0 !important; }
+            .container { padding: 0 !important; max-width: 100% !important; }
+            .resume-outer { max-width: 100% !important; margin: 0 !important; }
+
+            .resume-header-card {
+                background: white !important; border: none !important;
+                box-shadow: none !important; padding: 0 0 4px !important;
+                margin-bottom: 4px !important;
+            }
+            .resume-header-card::before { display: none !important; }
+            .rh-name { font-size: 14pt !important; color: #111 !important; -webkit-text-fill-color: #111 !important; margin-bottom: 4px !important; }
+            .rh-contacts { gap: 10px !important; font-size: 6.5pt !important; }
+            .rh-contact-item a { color: #c2410c !important; }
+
+            .resume-tab-panel { display: block !important; }
+
+            .rs-card { background: white !important; border: none !important; box-shadow: none !important; padding: 4px 0 !important; margin-bottom: 6px !important; }
+            .rs-card::before { display: none !important; }
+            .rs-section-label { font-size: 6pt !important; color: #c2410c !important; margin-bottom: 3px !important; }
+            .rs-skill-group-title { font-size: 7pt !important; }
+            .skill-entry { font-size: 6.5pt !important; margin-bottom: 1px !important; }
+            .rs-item { margin-bottom: 5px !important; padding-bottom: 4px !important; }
+            .rs-item-title { font-size: 7pt !important; color: #c2410c !important; }
+            .rs-item-date { font-size: 6pt !important; }
+            .rs-bullets li { font-size: 6.2pt !important; margin-bottom: 1px !important; }
+            .rs-techstack { font-size: 6pt !important; }
+            .cert-row { font-size: 6.5pt !important; margin-bottom: 3px !important; padding-bottom: 3px !important; }
+            .cert-row-date { font-size: 6pt !important; }
+            .edu-inst { font-size: 7pt !important; color: #c2410c !important; }
+            .edu-degree, .edu-location { font-size: 6.5pt !important; color: #333 !important; }
+            .edu-date { font-size: 6pt !important; }
+            .edu-row { margin-bottom: 4px !important; padding-bottom: 4px !important; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .resume-header-card { padding: 24px 20px 20px; }
+            .rs-card { padding: 22px 18px; }
+            .rh-contacts { gap: 10px; }
+            .edu-row { flex-direction: column; gap: 4px; }
+            .edu-row-right { text-align: left; }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-content">
+        <section>
+            <div class="container">
+
+                <!-- Web-only section header -->
+                <div class="section-header fade-in">
+                    <span class="section-label">Resume</span>
+                    <h1 class="section-title">My Resume</h1>
+                    <p class="section-subtitle">Explore each section using the tabs below.</p>
+                </div>
+
+                <div class="resume-outer">
+
+                    <!-- ===== RESUME HEADER ===== -->
+                    <div class="resume-header-card fade-in">
+                        <div class="rh-name">Gembali Lokhnadh</div>
+                        <div class="rh-contacts">
+                            <div class="rh-contact-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                                <a href="mailto:lokhnadhgembali@gmail.com">lokhnadhgembali@gmail.com</a>
+                            </div>
+                            <div class="rh-contact-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.25 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-2.92-8.72A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                <span>+91 6305551901</span>
+                            </div>
+                            <div class="rh-contact-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                                <a href="https://www.linkedin.com/in/lokhnadh/" target="_blank">LinkedIn</a>
+                            </div>
+                            <div class="rh-contact-item">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                                <a href="https://github.com/lokhnadhgembali" target="_blank">GitHub</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== TABS NAVIGATION ===== -->
+                    <div class="resume-tabs-nav fade-in">
+                        <button class="rtab-btn" data-tab="education">Education</button>
+                        <button class="rtab-btn active" data-tab="skills">Skills</button>
+                        <button class="rtab-btn" data-tab="projects">Projects</button>
+                        <button class="rtab-btn" data-tab="internships">Internships</button>
+                        <button class="rtab-btn" data-tab="training">Training</button>
+                        <button class="rtab-btn" data-tab="extracurricular">Extracurricular</button>
+                        <button class="rtab-btn" data-tab="certificates">Certificates</button>
+                    </div>
+
+                    <!-- ===== TAB: EDUCATION ===== -->
+                    <div class="resume-tab-panel" id="tab-education">
+                        <div class="rs-card fade-in">
+                            <div class="rs-section-label">Education</div>
+
+                            <div class="edu-row">
+                                <div class="edu-row-left">
+                                    <div class="edu-inst">Lovely Professional University</div>
+                                    <div class="edu-degree">Bachelor of Technology – Computer Science and Engineering; <strong>CGPA: 7.13</strong></div>
+                                </div>
+                                <div class="edu-row-right">
+                                    <div class="edu-location">Phagwara, Punjab</div>
+                                    <div class="edu-date">Since Aug' 23</div>
+                                </div>
+                            </div>
+
+                            <div class="edu-row">
+                                <div class="edu-row-left">
+                                    <div class="edu-inst">Sri Chaitanya Junior College</div>
+                                    <div class="edu-degree">Intermediate; <strong>Percentage: 84.6%</strong></div>
+                                </div>
+                                <div class="edu-row-right">
+                                    <div class="edu-location">Vishakhapatnam, Andhra Pradesh</div>
+                                    <div class="edu-date">Jun' 21 – May' 22</div>
+                                </div>
+                            </div>
+
+                            <div class="edu-row">
+                                <div class="edu-row-left">
+                                    <div class="edu-inst">Sri Ramakrishna School</div>
+                                    <div class="edu-degree">Matriculation; <strong>Percentage: 85.5%</strong></div>
+                                </div>
+                                <div class="edu-row-right">
+                                    <div class="edu-location">Vishakhapatnam, Andhra Pradesh</div>
+                                    <div class="edu-date">Jun' 19 – Mar' 20</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== TAB: SKILLS ===== -->
+                    <div class="resume-tab-panel active" id="tab-skills">
+                        <div class="rs-card fade-in">
+                            <div class="rs-section-label">Programming</div>
+                            <div class="rs-skill-group">
+                                <div class="rs-skill-group-title">Languages</div>
+                                <div class="skill-entry">Python — primary language for data science, ML and backend</div>
+                                <div class="skill-entry">C++ — data structures, algorithms, competitive programming</div>
+                                <div class="skill-entry">Java — object-oriented programming fundamentals</div>
+                                <div class="skill-entry">C — core systems and procedural programming</div>
+                            </div>
+                        </div>
+
+                        <div class="rs-card fade-in" style="margin-top:16px;">
+                            <div class="rs-section-label">Data Science</div>
+                            <div class="rs-skill-group">
+                                <div class="rs-skill-group-title">Libraries &amp; Tools</div>
+                                <div class="skill-entry">Pandas, NumPy — data manipulation and numerical computation</div>
+                                <div class="skill-entry">Scikit-learn — machine learning models and pipelines</div>
+                                <div class="skill-entry">Matplotlib, Seaborn — data visualisation and charting</div>
+                                <div class="skill-entry">Power BI, Excel — business intelligence and reporting</div>
+                                <div class="skill-entry">MySQL, Jupyter, GitHub — data management and version control</div>
+                            </div>
+                        </div>
+
+                        <div class="rs-card fade-in" style="margin-top:16px;">
+                            <div class="rs-section-label">Web &amp; Other</div>
+                            <div class="rs-skill-group">
+                                <div class="rs-skill-group-title">Frameworks &amp; Platforms</div>
+                                <div class="skill-entry">HTML, CSS — web structure and styling</div>
+                                <div class="skill-entry">Git, GitHub, VS Code — version control and development environment</div>
+                            </div>
+                            <div class="rs-skill-group" style="margin-top:16px;">
+                                <div class="rs-skill-group-title">Core &amp; Soft Skills</div>
+                                <div class="skill-entry">DSA, Computer Networks, Operating Systems — core CS fundamentals</div>
+                                <div class="skill-entry">Problem-Solving, Team Player, Leadership, Adaptability</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== TAB: PROJECTS ===== -->
+                    <div class="resume-tab-panel" id="tab-projects">
+                        <div class="rs-card fade-in">
+                            <div class="rs-section-label">Projects</div>
+
+                            <div class="rs-item">
+                                <div class="rs-item-header">
+                                    <div class="rs-item-title">
+                                        Airline Service Quality Analysis Dashboard
+                                        <a href="https://github.com/lokhnadhgembali/Airline-Service-Quality-analysis-Dashboard" target="_blank">| GitHub</a>
+                                    </div>
+                                    <div class="rs-item-date">Oct' 25 – Dec' 25</div>
+                                </div>
+                                <ul class="rs-bullets">
+                                    <li>Created an interactive Airline Service Quality Dashboard leveraging a Kaggle dataset to analyze passenger satisfaction and key service performance metrics.</li>
+                                    <li>Performed data cleaning and transformation in Excel to improve data accuracy and consistency before importing into Power BI for reliable analysis and reporting.</li>
+                                    <li>Designed dynamic visualizations to analyze key factors such as customer ratings, delays, class types, and service quality metrics, enabling clear identification of improvement areas.</li>
+                                    <li>Generated actionable insights through KPIs and comparative charts that support data-driven decision-making for enhancing overall customer experience.</li>
+                                </ul>
+                                <div class="rs-techstack"><strong>Tech Stack:</strong> Microsoft Excel, Power BI</div>
+                            </div>
+
+                            <div class="rs-item">
+                                <div class="rs-item-header">
+                                    <div class="rs-item-title">
+                                        Student-Performance Analysis
+                                        <a href="https://github.com/lokhnadhgembali/Student-performance" target="_blank">| GitHub</a>
+                                    </div>
+                                    <div class="rs-item-date">Feb' 25 – Apr' 25</div>
+                                </div>
+                                <ul class="rs-bullets">
+                                    <li>Developed a data-driven approach to analyze student performance using <strong>650 records</strong> across <strong>12 academic</strong> and behavioral attributes, identifying key factors influencing academic success.</li>
+                                    <li>Processed, refined, and evaluated large student datasets to reveal trends in scores, attendance, and subject-wise achievement.</li>
+                                    <li>Established a streamlined data analysis workflow using Python libraries like NumPy, Pandas, Matplotlib, Seaborn and executed advanced EDA techniques, achieving <strong>90% model accuracy</strong> in performance prediction.</li>
+                                    <li>Produced insightful visualizations and reports that enabled data-driven decision-making for educational improvement.</li>
+                                </ul>
+                                <div class="rs-techstack"><strong>Tech Stack:</strong> Python, NumPy, Pandas, Matplotlib, Seaborn</div>
+                            </div>
+
+                            <div class="rs-item">
+                                <div class="rs-item-header">
+                                    <div class="rs-item-title">
+                                        Fake Job Detection
+                                        <a href="https://github.com/lokhnadhgembali" target="_blank">| GitHub</a>
+                                    </div>
+                                    <div class="rs-item-date">Jan' 26 – Mar' 26</div>
+                                </div>
+                                <ul class="rs-bullets">
+                                    <li>Built a machine learning pipeline to classify job postings as real or fraudulent using NLP techniques and structured data features.</li>
+                                    <li>Applied TF-IDF vectorization and ensemble models to achieve high accuracy in detecting fake listings.</li>
+                                    <li>Performed comprehensive EDA on text and categorical features to identify fraud patterns and class imbalance handling strategies.</li>
+                                </ul>
+                                <div class="rs-techstack"><strong>Tech Stack:</strong> Python, Scikit-learn, Pandas, NLTK</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== TAB: INTERNSHIPS ===== -->
+                    <div class="resume-tab-panel" id="tab-internships">
+                        <div class="rs-card fade-in">
+                            <div class="rs-section-label">Internships</div>
+                            <div style="text-align:center; padding: 40px 0; color: var(--text-muted); font-size: 0.88rem;">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="opacity:0.3; display:block; margin:0 auto 12px;"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg>
+                                Currently seeking opportunities — internship details will appear here.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== TAB: TRAINING ===== -->
+                    <div class="resume-tab-panel" id="tab-training">
+                        <div class="rs-card fade-in">
+                            <div class="rs-section-label">Training</div>
+
+                            <div class="rs-item">
+                                <div class="rs-item-header">
+                                    <div class="rs-item-title">A Hands On Approach To Data Science | LPU</div>
+                                    <div class="rs-item-date">Jun' 25 – Jul' 25</div>
+                                </div>
+                                <div class="rs-item-sub">Summer Training Program — Lovely Professional University</div>
+                                <ul class="rs-bullets">
+                                    <li>Attended an immersive summer training in Data Science, gaining practical expertise in end-to-end data handling and analytical tools.</li>
+                                    <li>Built strong proficiency in MySQL, Excel, Power BI, and Python with Machine Learning concepts by applying data cleaning, analysis, visualization, and ML techniques through guided modules and real-time exercises.</li>
+                                    <li>Delivered an Avocado Ripeness Analysis project using advanced data analysis and visualization techniques, achieving <strong>95% data accuracy</strong> and identifying key ripeness influencers through interactive dashboards.</li>
+                                </ul>
+                                <div class="rs-techstack"><strong>Tech Stack:</strong> SQL, Python, Microsoft Excel, Power BI</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== TAB: EXTRACURRICULAR ===== -->
+                    <div class="resume-tab-panel" id="tab-extracurricular">
+                        <div class="rs-card fade-in">
+                            <div class="rs-section-label">Extracurricular &amp; Achievements</div>
+
+                            <div class="achieve-row">
+                                <div class="achieve-row-left">
+                                    Qualified for first-round status in the <strong>Build a Thon Hackathon</strong> through impactful project innovation and solid technical implementation.
+                                    <a href="#" target="_blank">| Link</a>
+                                </div>
+                                <div class="achieve-row-date">Mar' 24</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== TAB: CERTIFICATES ===== -->
+                    <div class="resume-tab-panel" id="tab-certificates">
+                        <div class="rs-card fade-in">
+                            <div class="rs-section-label">Certificates</div>
+
+                            <div class="cert-row">
+                                <div class="cert-row-left">Data Analytics Essentials | Cisco Networking Academy <a href="https://drive.google.com/file/d/1iYxv5vl7ga8E_oMDg9j99za4rQK1Vwua/view" target="_blank">| Link</a></div>
+                                <div class="cert-row-date">Dec' 25</div>
+                            </div>
+                            <div class="cert-row">
+                                <div class="cert-row-left">Power BI Workshop | Office Master <a href="https://certx.in/certificate/36a28147-6eed-47a5-8342-e5f926ebba61782982" target="_blank">| Link</a></div>
+                                <div class="cert-row-date">Nov' 25</div>
+                            </div>
+                            <div class="cert-row">
+                                <div class="cert-row-left">Privacy and Security in Online Social Media | NPTEL <a href="https://drive.google.com/file/d/17hYE2yMkyaQfUZBYLuZD36hlGTc6ROzh/view" target="_blank">| Link</a></div>
+                                <div class="cert-row-date">Nov' 25</div>
+                            </div>
+                            <div class="cert-row">
+                                <div class="cert-row-left">FrontEnd Web Development | Edyoda <a href="https://classroom.edyoda.com/public-certificate/lokhnadhgembali/FEMD240224" target="_blank">| Link</a></div>
+                                <div class="cert-row-date">Mar' 24</div>
+                            </div>
+                            <div class="cert-row">
+                                <div class="cert-row-left">Responsive Web Design | Free Code Camp <a href="https://www.freecodecamp.org/certification/fcce0d69dc2-d445-4f28-b7dd-f8cfda6eb8fb/responsive-web-design" target="_blank">| Link</a></div>
+                                <div class="cert-row-date">Dec' 23</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ===== DOWNLOAD BUTTON ===== -->
+                    <div class="download-section fade-in">
+                        <a class="btn-download" href="general_cv.pdf" download="Gembali_Lokhnadh_CV.pdf">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Download Resume as PDF
+                        </a>
+                        <p class="download-hint">Click to download my CV directly as a PDF</p>
+                    </div>
+
+                </div><!-- end .resume-outer -->
+            </div>
+        </section>
+    </div>
+
+    <script src="js/nav.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        // ===== TAB SWITCHING =====
+        const tabBtns = document.querySelectorAll('.rtab-btn');
+        const tabPanels = document.querySelectorAll('.resume-tab-panel');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const target = btn.dataset.tab;
+
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabPanels.forEach(p => p.classList.remove('active'));
+
+                btn.classList.add('active');
+                document.getElementById('tab-' + target).classList.add('active');
+            });
+        });
+
+    </script>
+
+</body>
+
+</html>
