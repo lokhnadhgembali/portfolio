@@ -548,7 +548,8 @@
                     <!-- ===== TABS NAVIGATION ===== -->
                     <div class="resume-tabs-nav fade-in">
                         <button class="rtab-btn" data-tab="education">Education</button>
-                        <button class="rtab-btn active" data-tab="skills">Skills</button>
+                        <button class="rtab-btn active" data-tab="experience">Experience</button>
+                        <button class="rtab-btn" data-tab="skills">Skills</button>
                         <button class="rtab-btn" data-tab="projects">Projects</button>
                         <button class="rtab-btn" data-tab="training">Training</button>
                         <button class="rtab-btn" data-tab="certificates">Certificates</button>
@@ -594,8 +595,25 @@
                         </div>
                     </div>
 
-                    <!-- ===== TAB: SKILLS ===== -->
-                    <div class="resume-tab-panel active" id="tab-skills">
+                    <!-- ===== TAB: EXPERIENCE ===== -->
+                    <div class="resume-tab-panel active" id="tab-experience">
+                        <div class="rs-card fade-in">
+                            <div class="rs-section-label">Internship</div>
+                            <div class="rs-item">
+                                <div class="rs-item-header">
+                                    <div class="rs-item-title">Infosys Springboard | Virtual Internship</div>
+                                    <div class="rs-item-date">Feb '26 - Present</div>
+                                </div>
+                                <ul class="rs-bullets">
+                                    <li>Engineered a <strong>Fake Job Detection</strong> system by analyzing 18,000+ job postings using TF-IDF vectorization, Logistic Regression, and rule-based suspicious pattern scoring to identify fraudulent listings with high precision.</li>
+                                    <li>Implemented a secure and scalable backend with <strong>FastAPI</strong> and <strong>MySQL</strong>, incorporating JWT authentication, Bcrypt password hashing, and structured storage for user activity, scan history, and prediction logs.</li>
+                                    <li>Crafted a responsive web interface using <strong>React 19, Vite, Framer Motion, and Recharts</strong>, along with an Admin Dashboard for real-time analytics, report export, and model retraining.</li>
+                                </ul>
+                                <div class="rs-techstack"><strong>Tech Stack:</strong> React, FastAPI, MySQL, Scikit-learn, Pandas</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="resume-tab-panel" id="tab-skills">
                         <div class="rs-card fade-in">
                             <div class="rs-section-label">Programming</div>
                             <div class="rs-skill-group">
@@ -630,6 +648,7 @@
                                 <div class="rs-skill-group-title">Core &amp; Soft Skills</div>
                                 <div class="skill-entry">DSA, Computer Networks, Operating Systems — core CS fundamentals</div>
                                 <div class="skill-entry">Problem-Solving, Team Player, Leadership, Adaptability</div>
+                                <div class="skill-entry"><strong>HackerRank:</strong> 5-star rating in C++ | Feb '26</div>
                             </div>
                         </div>
                     </div>
@@ -682,11 +701,11 @@
                                     <div class="rs-item-date">Jan' 26 – Mar' 26</div>
                                 </div>
                                 <ul class="rs-bullets">
-                                    <li>Built a machine learning pipeline to classify job postings as real or fraudulent using NLP techniques and structured data features.</li>
-                                    <li>Applied TF-IDF vectorization and ensemble models to achieve high accuracy in detecting fake listings.</li>
-                                    <li>Performed comprehensive EDA on text and categorical features to identify fraud patterns and class imbalance handling strategies.</li>
+                                    <li>Engineered a <strong>Fake Job Detection</strong> system by analyzing 18,000+ job postings using TF-IDF vectorization, Logistic Regression, and rule-based suspicious pattern scoring.</li>
+                                    <li>Implemented a secure and scalable backend with <strong>FastAPI</strong> and <strong>MySQL</strong>, incorporating JWT authentication and Bcrypt password hashing.</li>
+                                    <li>Crafted a responsive web interface using <strong>React 19, Vite, Framer Motion, and Recharts</strong>, along with a real-time Admin Dashboard.</li>
                                 </ul>
-                                <div class="rs-techstack"><strong>Tech Stack:</strong> Python, Scikit-learn, Pandas, NLTK</div>
+                                <div class="rs-techstack"><strong>Tech Stack:</strong> React, FastAPI, MySQL, Scikit-learn, Pandas, NLTK</div>
                             </div>
                         </div>
                     </div>
@@ -746,14 +765,14 @@
 
                     <!-- ===== DOWNLOAD BUTTON ===== -->
                     <div class="download-section fade-in">
-                        <a class="btn-download" href="general_cv.pdf" download="Gembali_Lokhnadh_CV.pdf">
+                        <a class="btn-download" href="general_cv.pdf" download="Gembali_Lokhnadh_General_CV.pdf">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                 stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
                                 <polyline points="7 10 12 15 17 10"/>
                                 <line x1="12" y1="15" x2="12" y2="3"/>
                             </svg>
-                            Download Resume as PDF
+                            Download General CV
                         </a>
                         <p class="download-hint">Click to download my CV directly as a PDF</p>
                     </div>
@@ -785,5 +804,4 @@
     </script>
 
 </body>
-
 </html>
