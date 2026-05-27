@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
@@ -33,8 +33,8 @@
                         </p>
 
                         <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)"
+                            <div class="contact-info-icon" style="background:rgba(249,115,22,0.1);border-color:rgba(249,115,22,0.2);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)"
                                     stroke-width="2">
                                     <path
                                         d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
@@ -44,29 +44,28 @@
                             <div class="contact-info-text">
                                 <h4>Email</h4>
                                 <p><a href="mailto:lokhnadhgembali@gmail.com"
-                                        style="color:var(--accent-cyan);">lokhnadhgembali@gmail.com</a></p>
+                                        style="color:var(--accent);">lokhnadhgembali@gmail.com</a></p>
                             </div>
                         </div>
 
                         <div class="contact-info-item">
-                            <div class="contact-info-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)"
-                                    stroke-width="2">
-                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                                    <circle cx="12" cy="10" r="3" />
+                            <div class="contact-info-icon" style="background:rgba(251,146,60,0.1);border-color:rgba(251,146,60,0.2);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)"
+                                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
                                 </svg>
                             </div>
                             <div class="contact-info-text">
-                                <h4>Location</h4>
-                                <p>India</p>
+                                <h4>Phone</h4>
+                                <p><a href="tel:+916305551901" style="color:var(--accent-light);">+91 63055 51901</a></p>
                             </div>
                         </div>
 
                         <div class="contact-info-item">
                             <div class="contact-info-icon"
-                                style="background:rgba(251,146,60,0.1);border-color:rgba(251,146,60,0.2);">
+                                style="background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.2);">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                                    stroke="var(--accent-purple)" stroke-width="2">
+                                    stroke="#38bdf8" stroke-width="2">
                                     <path
                                         d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                                     <rect x="2" y="9" width="4" height="12" />
@@ -76,7 +75,7 @@
                             <div class="contact-info-text">
                                 <h4>LinkedIn</h4>
                                 <p><a href="https://www.linkedin.com/in/lokhnadh/" target="_blank"
-                                        style="color:var(--accent-purple);">Lokhnadh Gembali</a></p>
+                                        style="color:#38bdf8;">Lokhnadh Gembali</a></p>
                             </div>
                         </div>
 
@@ -122,44 +121,52 @@
                                 form below and I'll get back to you as soon as possible.</p>
 
                             <form id="contactForm">
+                                <!-- Web3Forms Configuration -->
+                                <input type="hidden" name="access_key" value="3aba3b56-1e09-40ea-a899-e0f2fb8965b9">
+                                <input type="hidden" name="from_name" value="Gembali Lokhnadh Portfolio">
+                                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
                                 <div class="grid-2" style="gap:16px;">
                                     <div class="form-group">
                                         <label class="form-label" for="formName">Full Name *</label>
-                                        <input type="text" class="form-input" id="formName" placeholder="John Doe"
+                                        <input type="text" class="form-input" id="formName" name="name" placeholder="John Doe"
                                             required>
                                     </div>
                                     <div class="form-group">
                                         <label class="form-label" for="formEmail">Email Address *</label>
-                                        <input type="email" class="form-input" id="formEmail"
+                                        <input type="email" class="form-input" id="formEmail" name="email"
                                             placeholder="john@example.com" required>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="formSubject">Subject *</label>
-                                    <input type="text" class="form-input" id="formSubject"
+                                    <input type="text" class="form-input" id="formSubject" name="subject"
                                         placeholder="What's this about?" required>
                                 </div>
 
                                 <div class="form-group">
                                     <label class="form-label" for="formMessage">Message *</label>
-                                    <textarea class="form-textarea" id="formMessage"
+                                    <textarea class="form-textarea" id="formMessage" name="message"
                                         placeholder="Tell me more about your project or opportunity..."
                                         required></textarea>
                                 </div>
 
-                                <button type="submit" class="btn btn-primary"
+                                <button type="submit" class="btn btn-primary" id="submitBtn"
                                     style="width:100%;justify-content:center;">
-                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                         stroke-width="2">
                                         <line x1="22" y1="2" x2="11" y2="13" />
                                         <polygon points="22 2 15 22 11 13 2 9 22 2" />
                                     </svg>
-                                    Send Message
+                                    <span class="btn-text">Send Message</span>
                                 </button>
 
                                 <div class="success-message" id="successMessage">
                                     ✅ Thank you! Your message has been sent successfully. I'll get back to you soon!
+                                </div>
+                                <div class="error-message" id="errorMessage" style="display:none;color:#ef4444;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);padding:12px;border-radius:8px;margin-top:16px;font-size:0.9rem;text-align:center;">
+                                    ❌ Oops! Something went wrong. Please try again later or email me directly.
                                 </div>
                             </form>
                         </div>

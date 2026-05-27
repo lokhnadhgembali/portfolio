@@ -1,807 +1,970 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Resume of Gembali Lokhnadh - B.Tech CSE student specializing in Data Analytics, Machine Learning, and Web Development.">
-    <title>Resume | Gembali Lokhnadh</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* ===== RESUME PAGE WRAPPER ===== */
-        .resume-outer {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* ===== RESUME HEADER CARD ===== */
-        .resume-header-card {
-            background: rgba(10, 10, 10, 0.97);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: var(--radius-xl);
-            padding: 36px 48px 28px;
-            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.04);
-            position: relative;
-            margin-bottom: 24px;
-            text-align: center;
-        }
-
-        .resume-header-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 3px;
-            background: var(--gradient-main);
-            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-        }
-
-        .rh-name {
-            font-family: var(--font-heading);
-            font-size: 2.2rem;
-            font-weight: 800;
-            background: var(--gradient-main);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 14px;
-            line-height: 1.1;
-        }
-
-        .rh-contacts {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.84rem;
-            color: var(--text-muted);
-        }
-
-        .rh-contact-item {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .rh-contact-item svg {
-            flex-shrink: 0;
-            color: var(--accent-cyan);
-        }
-
-        .rh-contact-item a {
-            color: var(--accent-cyan);
-            text-decoration: none;
-            transition: opacity 0.2s;
-        }
-
-        .rh-contact-item a:hover { opacity: 0.75; }
-
-        /* ===== TABS NAV ===== */
-        .resume-tabs-nav {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-bottom: 24px;
-        }
-
-        .rtab-btn {
-            padding: 8px 20px;
-            background: rgba(255,255,255,0.04);
-            border: 1px solid rgba(255,255,255,0.09);
-            border-radius: 50px;
-            color: var(--text-secondary);
-            font-family: var(--font-body);
-            font-size: 0.84rem;
-            font-weight: 500;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            letter-spacing: 0.3px;
-        }
-
-        .rtab-btn:hover {
-            background: rgba(6, 182, 212, 0.12);
-            border-color: rgba(6, 182, 212, 0.3);
-            color: var(--accent-cyan);
-        }
-
-        .rtab-btn.active {
-            background: var(--gradient-main);
-            border-color: transparent;
-            color: white;
-            font-weight: 600;
-            box-shadow: 0 4px 20px rgba(249,115,22,0.3);
-        }
-
-        /* ===== TAB PANELS ===== */
-        .resume-tab-panel {
-            display: none;
-        }
-
-        .resume-tab-panel.active {
-            display: block;
-            animation: fadeInUp 0.35s ease;
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(10px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* ===== SECTION CARD ===== */
-        .rs-card {
-            background: rgba(10, 10, 10, 0.97);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: var(--radius-xl);
-            padding: 32px 40px;
-            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.5);
-            position: relative;
-        }
-
-        .rs-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 2px;
-            background: var(--gradient-main);
-            border-radius: var(--radius-xl) var(--radius-xl) 0 0;
-        }
-
-        /* ===== SECTION LABEL ===== */
-        .rs-section-label {
-            font-size: 0.7rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--accent-cyan);
-            margin-bottom: 14px;
-        }
-
-        /* ===== SKILLS SECTION ===== */
-        .rs-skill-group {
-            margin-bottom: 20px;
-        }
-
-        .rs-skill-group:last-child { margin-bottom: 0; }
-
-        .rs-skill-group-title {
-            font-family: var(--font-heading);
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            margin-bottom: 8px;
-        }
-
-        .skill-entry {
-            display: flex;
-            gap: 0;
-            margin-bottom: 5px;
-            font-size: 0.86rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-        }
-
-        .skill-entry::before {
-            content: '—';
-            color: var(--accent-cyan);
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-
-        /* ===== PROJECTS / TRAINING ITEMS ===== */
-        .rs-item {
-            margin-bottom: 22px;
-            padding-bottom: 22px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .rs-item:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .rs-item-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 6px;
-        }
-
-        .rs-item-title {
-            font-family: var(--font-heading);
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            line-height: 1.4;
-        }
-
-        .rs-item-title a {
-            color: var(--accent-orange);
-            font-size: 0.8rem;
-            margin-left: 6px;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .rs-item-title a:hover { opacity: 0.8; }
-
-        .rs-item-date {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            white-space: nowrap;
-            flex-shrink: 0;
-            font-style: italic;
-        }
-
-        .rs-item-sub {
-            font-size: 0.82rem;
-            color: var(--text-muted);
-            margin-bottom: 8px;
-            font-style: italic;
-        }
-
-        .rs-bullets {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 8px;
-        }
-
-        .rs-bullets li {
-            font-size: 0.84rem;
-            color: var(--text-secondary);
-            line-height: 1.65;
-            margin-bottom: 4px;
-            padding-left: 16px;
-            position: relative;
-        }
-
-        .rs-bullets li::before {
-            content: '•';
-            position: absolute;
-            left: 0;
-            color: var(--accent-cyan);
-        }
-
-        .rs-bullets li strong { color: var(--text-primary); font-weight: 600; }
-
-        .rs-techstack {
-            font-size: 0.8rem;
-            color: var(--text-secondary);
-            margin-top: 6px;
-        }
-
-        .rs-techstack strong { color: var(--text-primary); font-weight: 600; }
-
-        /* ===== CERTIFICATES ===== */
-        .cert-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 10px;
-            font-size: 0.85rem;
-            padding-bottom: 10px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .cert-row:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .cert-row-left {
-            display: flex;
-            align-items: center;
-            gap: 0;
-            color: var(--text-secondary);
-        }
-
-        .cert-row-left::before {
-            content: '•';
-            color: var(--accent-cyan);
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-
-        .cert-row-left a {
-            color: var(--accent-orange);
-            margin-left: 5px;
-            font-weight: 600;
-            font-size: 0.78rem;
-            text-decoration: none;
-        }
-
-        .cert-row-date {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            white-space: nowrap;
-            font-style: italic;
-            flex-shrink: 0;
-        }
-
-        /* ===== EDUCATION ===== */
-        .edu-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            margin-bottom: 18px;
-            padding-bottom: 18px;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .edu-row:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .edu-row-left { flex: 1; }
-
-        .edu-inst {
-            font-family: var(--font-heading);
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: var(--accent-cyan);
-            margin-bottom: 2px;
-        }
-
-        .edu-degree {
-            font-size: 0.84rem;
-            color: var(--text-secondary);
-            font-style: italic;
-        }
-
-        .edu-row-right {
-            text-align: right;
-            flex-shrink: 0;
-        }
-
-        .edu-location {
-            font-size: 0.82rem;
-            color: var(--text-secondary);
-        }
-
-        .edu-date {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-top: 2px;
-        }
-
-        /* ===== ACHIEVEMENTS ===== */
-        .achieve-row {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 12px;
-            font-size: 0.84rem;
-            margin-bottom: 10px;
-        }
-
-        .achieve-row-left {
-            display: flex;
-            align-items: flex-start;
-            color: var(--text-secondary);
-            line-height: 1.65;
-        }
-
-        .achieve-row-left::before {
-            content: '•';
-            color: var(--accent-cyan);
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-
-        .achieve-row-left a {
-            color: var(--accent-orange);
-            margin-left: 5px;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .achieve-row-date {
-            font-size: 0.78rem;
-            color: var(--text-muted);
-            font-style: italic;
-            white-space: nowrap;
-            flex-shrink: 0;
-        }
-
-        /* ===== DOWNLOAD BUTTON ===== */
-        .download-section {
-            text-align: center;
-            padding: 30px 0 10px;
-        }
-
-        .btn-download {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            padding: 14px 38px;
-            background: var(--gradient-main);
-            color: white;
-            font-family: var(--font-body);
-            font-size: 0.95rem;
-            font-weight: 600;
-            border: none;
-            border-radius: var(--radius-full);
-            cursor: pointer;
-            text-decoration: none;
-            box-shadow: 0 6px 30px rgba(249, 115, 22, 0.35);
-            transition: all 0.3s ease;
-        }
-
-        .btn-download:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(249, 115, 22, 0.5);
-            color: white;
-        }
-
-        .btn-download:active { transform: translateY(-1px); }
-
-        .download-hint {
-            margin-top: 10px;
-            font-size: 0.78rem;
-            color: var(--text-muted);
-        }
-
-        /* ===== PRINT ===== */
-        @media print {
-            @page { size: A4 portrait; margin: 6mm 10mm; }
-
-            * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; box-sizing: border-box !important; }
-
-            html, body { background: white !important; color: #111 !important; font-size: 7pt !important; line-height: 1.3 !important; overflow: visible !important; }
-
-            .navbar, .footer, .bg-grid, .bg-glow, .download-section,
-            .section-header, .resume-tabs-nav { display: none !important; }
-
-            .page-content { padding-top: 0 !important; }
-            section { padding: 0 !important; margin: 0 !important; }
-            .container { padding: 0 !important; max-width: 100% !important; }
-            .resume-outer { max-width: 100% !important; margin: 0 !important; }
-
-            .resume-header-card {
-                background: white !important; border: none !important;
-                box-shadow: none !important; padding: 0 0 4px !important;
-                margin-bottom: 4px !important;
-            }
-            .resume-header-card::before { display: none !important; }
-            .rh-name { font-size: 14pt !important; color: #111 !important; -webkit-text-fill-color: #111 !important; margin-bottom: 4px !important; }
-            .rh-contacts { gap: 10px !important; font-size: 6.5pt !important; }
-            .rh-contact-item a { color: #c2410c !important; }
-
-            .resume-tab-panel { display: block !important; }
-
-            .rs-card { background: white !important; border: none !important; box-shadow: none !important; padding: 4px 0 !important; margin-bottom: 6px !important; }
-            .rs-card::before { display: none !important; }
-            .rs-section-label { font-size: 6pt !important; color: #c2410c !important; margin-bottom: 3px !important; }
-            .rs-skill-group-title { font-size: 7pt !important; }
-            .skill-entry { font-size: 6.5pt !important; margin-bottom: 1px !important; }
-            .rs-item { margin-bottom: 5px !important; padding-bottom: 4px !important; }
-            .rs-item-title { font-size: 7pt !important; color: #c2410c !important; }
-            .rs-item-date { font-size: 6pt !important; }
-            .rs-bullets li { font-size: 6.2pt !important; margin-bottom: 1px !important; }
-            .rs-techstack { font-size: 6pt !important; }
-            .cert-row { font-size: 6.5pt !important; margin-bottom: 3px !important; padding-bottom: 3px !important; }
-            .cert-row-date { font-size: 6pt !important; }
-            .edu-inst { font-size: 7pt !important; color: #c2410c !important; }
-            .edu-degree, .edu-location { font-size: 6.5pt !important; color: #333 !important; }
-            .edu-date { font-size: 6pt !important; }
-            .edu-row { margin-bottom: 4px !important; padding-bottom: 4px !important; }
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .resume-header-card { padding: 24px 20px 20px; }
-            .rs-card { padding: 22px 18px; }
-            .rh-contacts { gap: 10px; }
-            .edu-row { flex-direction: column; gap: 4px; }
-            .edu-row-right { text-align: left; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Resume of Gembali Lokhnadh - B.Tech CSE student at LPU specializing in Data Analytics, Machine Learning, and Web Development. Infosys Springboard intern.">
+  <title>Resume | Gembali Lokhnadh</title>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ===== RESUME PAGE WRAPPER ===== */
+    .resume-outer {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* ===== RESUME HEADER CARD ===== */
+    .resume-header-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-xl);
+      padding: 36px 48px 28px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      margin-bottom: 24px;
+      text-align: center;
+      backdrop-filter: blur(16px);
+    }
+
+    .resume-header-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-main);
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+    }
+
+    .rh-name {
+      font-family: var(--font-heading);
+      font-size: 2.4rem;
+      font-weight: 800;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 18px;
+      line-height: 1.1;
+    }
+
+    .rh-contacts {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .rh-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .rh-contact-item svg { flex-shrink: 0; color: var(--accent); }
+
+    .rh-contact-item a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    .rh-contact-item a:hover { opacity: 0.75; }
+
+    /* ===== TABS NAV ===== */
+    .resume-tabs-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .rtab-btn {
+      padding: 9px 22px;
+      background: var(--bg-glass);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-full);
+      color: var(--text-secondary);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .rtab-btn:hover {
+      background: var(--accent-subtle);
+      border-color: var(--accent-border);
+      color: var(--accent);
+    }
+
+    .rtab-btn.active {
+      background: var(--gradient-main);
+      border-color: transparent;
+      color: white;
+      font-weight: 600;
+      box-shadow: 0 4px 20px var(--accent-glow);
+    }
+
+    /* ===== TAB PANELS ===== */
+    .resume-tab-panel { display: none; }
+
+    .resume-tab-panel.active {
+      display: block;
+      animation: fadeInUp 0.35s ease;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== SECTION CARD ===== */
+    .rs-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-glass-border);
+      border-radius: var(--radius-xl);
+      padding: 32px 40px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      backdrop-filter: blur(16px);
+      margin-bottom: 16px;
+    }
+
+    .rs-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gradient-main);
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .rs-card:hover::before { opacity: 1; }
+
+    /* ===== SECTION LABEL ===== */
+    .rs-section-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--accent-border);
+    }
+
+    /* ===== SKILLS SECTION ===== */
+    .rs-skill-group { margin-bottom: 20px; }
+    .rs-skill-group:last-child { margin-bottom: 0; }
+
+    .rs-skill-group-title {
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .rs-skill-group-title .dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .skill-entry {
+      display: flex;
+      gap: 0;
+      margin-bottom: 6px;
+      font-size: 0.87rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    .skill-entry::before {
+      content: '\2014';
+      color: var(--accent);
+      margin-right: 10px;
+      flex-shrink: 0;
+    }
+
+    /* ===== SKILL TAG PILLS ===== */
+    .rs-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 6px;
+    }
+
+    .rs-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      border-radius: var(--radius-full);
+      background: var(--accent-subtle);
+      color: var(--accent);
+      border: 1px solid var(--accent-border);
+    }
+
+    .rs-tag-purple { background: rgba(139,92,246,0.1); color: #8b5cf6; border-color: rgba(139,92,246,0.2); }
+    .rs-tag-green  { background: rgba(16,185,129,0.1); color: var(--accent-green); border-color: rgba(16,185,129,0.2); }
+    .rs-tag-pink   { background: rgba(236,72,153,0.1); color: #ec4899; border-color: rgba(236,72,153,0.2); }
+
+    /* ===== PROJECTS / EXPERIENCE ITEMS ===== */
+    .rs-item {
+      margin-bottom: 26px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--bg-glass-border);
+    }
+
+    .rs-item:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .rs-item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+
+    .rs-item-org {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .rs-item-role {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .rs-item-date {
+      display: inline-block;
+      font-size: 0.77rem;
+      color: var(--accent);
+      font-weight: 600;
+      padding: 3px 10px;
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-full);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .rs-item-sub {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    .rs-item-title {
+      font-family: var(--font-heading);
+      font-size: 0.98rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .rs-gh-link {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 2px 9px;
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-full);
+      transition: all 0.2s;
+    }
+
+    .rs-gh-link:hover { background: rgba(249,115,22,0.15); }
+
+    .rs-bullets {
+      list-style: none;
+      padding: 0;
+      margin: 8px 0;
+    }
+
+    .rs-bullets li {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 5px;
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .rs-bullets li::before {
+      content: '\2022';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+
+    .rs-bullets li strong { color: var(--text-primary); font-weight: 600; }
+
+    .rs-techstack {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .rs-techstack strong { color: var(--text-secondary); font-weight: 600; }
+
+    /* ===== CERTIFICATES ===== */
+    .cert-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.86rem;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--bg-glass-border);
+      flex-wrap: wrap;
+    }
+
+    .cert-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .cert-row-left {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      color: var(--text-secondary);
+      flex: 1;
+    }
+
+    .cert-row-left::before {
+      content: '\2022';
+      color: var(--accent);
+      margin-right: 10px;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .cert-row-left a {
+      color: var(--accent);
+      margin-left: 8px;
+      font-weight: 600;
+      font-size: 0.78rem;
+      text-decoration: none;
+      padding: 2px 8px;
+      background: var(--accent-subtle);
+      border: 1px solid var(--accent-border);
+      border-radius: var(--radius-full);
+    }
+
+    .cert-row-left a:hover { background: rgba(249,115,22,0.15); }
+
+    .cert-row-date {
+      font-size: 0.78rem;
+      color: var(--accent);
+      white-space: nowrap;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    /* ===== EDUCATION ===== */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--bg-glass-border);
+      flex-wrap: wrap;
+    }
+
+    .edu-row:last-child {
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .edu-row-left { flex: 1; min-width: 200px; }
+
+    .edu-inst {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      background: var(--gradient-main);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+
+    .edu-degree {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+    }
+
+    .edu-degree strong { color: var(--text-primary); }
+
+    .edu-row-right { text-align: right; flex-shrink: 0; }
+
+    .edu-location {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+    }
+
+    .edu-date {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    /* ===== ACHIEVEMENTS ===== */
+    .achieve-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.86rem;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--bg-glass-border);
+      flex-wrap: wrap;
+    }
+
+    .achieve-row:last-child {
+      margin-bottom: 0; padding-bottom: 0; border-bottom: none;
+    }
+
+    .achieve-row-left {
+      display: flex;
+      align-items: flex-start;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .achieve-row-left::before {
+      content: '\2022';
+      color: var(--accent);
+      margin-right: 10px;
+      flex-shrink: 0;
+      font-size: 1rem;
+    }
+
+    .achieve-row-left strong { color: var(--text-primary); font-weight: 600; }
+
+    .achieve-row-date {
+      font-size: 0.78rem;
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ===== DOWNLOAD BUTTON ===== */
+    .download-section {
+      text-align: center;
+      padding: 36px 0 16px;
+    }
+
+    .btn-download {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 44px;
+      background: var(--gradient-main);
+      color: white;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 6px 30px var(--accent-glow-strong);
+      transition: all 0.3s ease;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 44px var(--accent-glow-strong);
+      color: white;
+    }
+
+    .btn-download:active { transform: translateY(-1px); }
+
+    .download-hint {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* ===== PRINT ===== */
+    @media print {
+      @page { size: A4 portrait; margin: 8mm 12mm; }
+      * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+      html, body { background: white !important; color: #111 !important; font-size: 7.5pt !important; line-height: 1.35 !important; }
+      .navbar, .footer, .bg-grid, .bg-glow, #scroll-progress,
+      .download-section, .section-header, .resume-tabs-nav { display: none !important; }
+      .page-content { padding-top: 0 !important; }
+      section { padding: 0 !important; }
+      .container { padding: 0 !important; max-width: 100% !important; }
+      .resume-outer { max-width: 100% !important; margin: 0 !important; }
+      .resume-header-card { background: white !important; border: none !important; box-shadow: none !important; padding: 0 0 6px !important; margin-bottom: 6px !important; }
+      .resume-header-card::before { display: none !important; }
+      .rh-name { font-size: 15pt !important; color: #111 !important; -webkit-text-fill-color: #111 !important; margin-bottom: 6px !important; }
+      .rh-contacts { gap: 12px !important; font-size: 7pt !important; }
+      .rh-contact-item a { color: #ea580c !important; }
+      .resume-tab-panel { display: block !important; }
+      .rs-card { background: white !important; border: none !important; box-shadow: none !important; padding: 4px 0 !important; margin-bottom: 8px !important; }
+      .rs-card::before { display: none !important; }
+      .rs-section-label { font-size: 6.5pt !important; color: #ea580c !important; border-color: #ea580c !important; margin-bottom: 4px !important; }
+      .rs-item { margin-bottom: 6px !important; padding-bottom: 5px !important; }
+      .rs-item-org { font-size: 8pt !important; color: #ea580c !important; -webkit-text-fill-color: #ea580c !important; }
+      .rs-item-date { font-size: 6pt !important; background: none !important; border: none !important; padding: 0 !important; }
+      .rs-bullets li { font-size: 6.5pt !important; margin-bottom: 2px !important; }
+      .rs-techstack { font-size: 6pt !important; }
+      .edu-inst { color: #ea580c !important; -webkit-text-fill-color: #ea580c !important; }
+      .edu-date { color: #ea580c !important; }
+      .cert-row-date { color: #ea580c !important; }
+      .achieve-row-date { color: #ea580c !important; }
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .resume-header-card { padding: 24px 20px 20px; }
+      .rs-card { padding: 22px 18px; }
+      .edu-row { flex-direction: column; gap: 4px; }
+      .edu-row-right { text-align: left; }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="page-content">
-        <section>
-            <div class="container">
+  <div class="page-content">
+    <section>
+      <div class="container">
 
-                <!-- Web-only section header -->
-                <div class="section-header fade-in">
-                    <span class="section-label">Resume</span>
-                    <h1 class="section-title">My Resume</h1>
-                    <p class="section-subtitle">Explore each section using the tabs below.</p>
-                </div>
+        <div class="section-header fade-in">
+          <span class="section-label">Resume</span>
+          <h1 class="section-title">My Resume</h1>
+          <p class="section-subtitle">Explore each section using the tabs below, or download the full PDF.</p>
+        </div>
 
-                <div class="resume-outer">
+        <div class="resume-outer">
 
-                    <!-- ===== RESUME HEADER ===== -->
-                    <div class="resume-header-card fade-in">
-                        <div class="rh-name">Gembali Lokhnadh</div>
-                        <div class="rh-contacts">
-                            <div class="rh-contact-item">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                                <a href="mailto:lokhnadhgembali@gmail.com">lokhnadhgembali@gmail.com</a>
-                            </div>
-                            <div class="rh-contact-item">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.25 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-2.92-8.72A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                                <span>+91 6305551901</span>
-                            </div>
-                            <div class="rh-contact-item">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-                                <a href="https://www.linkedin.com/in/lokhnadh/" target="_blank">LinkedIn</a>
-                            </div>
-                            <div class="rh-contact-item">
-                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-                                <a href="https://github.com/lokhnadhgembali" target="_blank">GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===== TABS NAVIGATION ===== -->
-                    <div class="resume-tabs-nav fade-in">
-                        <button class="rtab-btn" data-tab="education">Education</button>
-                        <button class="rtab-btn active" data-tab="experience">Experience</button>
-                        <button class="rtab-btn" data-tab="skills">Skills</button>
-                        <button class="rtab-btn" data-tab="projects">Projects</button>
-                        <button class="rtab-btn" data-tab="training">Training</button>
-                        <button class="rtab-btn" data-tab="certificates">Certificates</button>
-                    </div>
-
-                    <!-- ===== TAB: EDUCATION ===== -->
-                    <div class="resume-tab-panel" id="tab-education">
-                        <div class="rs-card fade-in">
-                            <div class="rs-section-label">Education</div>
-
-                            <div class="edu-row">
-                                <div class="edu-row-left">
-                                    <div class="edu-inst">Lovely Professional University</div>
-                                    <div class="edu-degree">Bachelor of Technology – Computer Science and Engineering; <strong>CGPA: 7.13</strong></div>
-                                </div>
-                                <div class="edu-row-right">
-                                    <div class="edu-location">Phagwara, Punjab</div>
-                                    <div class="edu-date">Since Aug' 23</div>
-                                </div>
-                            </div>
-
-                            <div class="edu-row">
-                                <div class="edu-row-left">
-                                    <div class="edu-inst">Sri Chaitanya Junior College</div>
-                                    <div class="edu-degree">Intermediate; <strong>Percentage: 84.6%</strong></div>
-                                </div>
-                                <div class="edu-row-right">
-                                    <div class="edu-location">Vishakhapatnam, Andhra Pradesh</div>
-                                    <div class="edu-date">Jun' 21 – May' 22</div>
-                                </div>
-                            </div>
-
-                            <div class="edu-row">
-                                <div class="edu-row-left">
-                                    <div class="edu-inst">Sri Ramakrishna School</div>
-                                    <div class="edu-degree">Matriculation; <strong>Percentage: 85.5%</strong></div>
-                                </div>
-                                <div class="edu-row-right">
-                                    <div class="edu-location">Vishakhapatnam, Andhra Pradesh</div>
-                                    <div class="edu-date">Jun' 19 – Mar' 20</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===== TAB: EXPERIENCE ===== -->
-                    <div class="resume-tab-panel active" id="tab-experience">
-                        <div class="rs-card fade-in">
-                            <div class="rs-section-label">Internship</div>
-                            <div class="rs-item">
-                                <div class="rs-item-header">
-                                    <div class="rs-item-title">Infosys Springboard | Virtual Internship</div>
-                                    <div class="rs-item-date">Feb '26 - Present</div>
-                                </div>
-                                <ul class="rs-bullets">
-                                    <li>Engineered a <strong>Fake Job Detection</strong> system by analyzing 18,000+ job postings using TF-IDF vectorization, Logistic Regression, and rule-based suspicious pattern scoring to identify fraudulent listings with high precision.</li>
-                                    <li>Implemented a secure and scalable backend with <strong>FastAPI</strong> and <strong>MySQL</strong>, incorporating JWT authentication, Bcrypt password hashing, and structured storage for user activity, scan history, and prediction logs.</li>
-                                    <li>Crafted a responsive web interface using <strong>React 19, Vite, Framer Motion, and Recharts</strong>, along with an Admin Dashboard for real-time analytics, report export, and model retraining.</li>
-                                </ul>
-                                <div class="rs-techstack"><strong>Tech Stack:</strong> React, FastAPI, MySQL, Scikit-learn, Pandas</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="resume-tab-panel" id="tab-skills">
-                        <div class="rs-card fade-in">
-                            <div class="rs-section-label">Programming</div>
-                            <div class="rs-skill-group">
-                                <div class="rs-skill-group-title">Languages</div>
-                                <div class="skill-entry">Python — primary language for data science, ML and backend</div>
-                                <div class="skill-entry">C++ — data structures, algorithms, competitive programming</div>
-                                <div class="skill-entry">Java — object-oriented programming fundamentals</div>
-                                <div class="skill-entry">C — core systems and procedural programming</div>
-                            </div>
-                        </div>
-
-                        <div class="rs-card fade-in" style="margin-top:16px;">
-                            <div class="rs-section-label">Data Science</div>
-                            <div class="rs-skill-group">
-                                <div class="rs-skill-group-title">Libraries &amp; Tools</div>
-                                <div class="skill-entry">Pandas, NumPy — data manipulation and numerical computation</div>
-                                <div class="skill-entry">Scikit-learn — machine learning models and pipelines</div>
-                                <div class="skill-entry">Matplotlib, Seaborn — data visualisation and charting</div>
-                                <div class="skill-entry">Power BI, Excel — business intelligence and reporting</div>
-                                <div class="skill-entry">MySQL, Jupyter, GitHub — data management and version control</div>
-                            </div>
-                        </div>
-
-                        <div class="rs-card fade-in" style="margin-top:16px;">
-                            <div class="rs-section-label">Web &amp; Other</div>
-                            <div class="rs-skill-group">
-                                <div class="rs-skill-group-title">Frameworks &amp; Platforms</div>
-                                <div class="skill-entry">HTML, CSS — web structure and styling</div>
-                                <div class="skill-entry">Git, GitHub, VS Code — version control and development environment</div>
-                            </div>
-                            <div class="rs-skill-group" style="margin-top:16px;">
-                                <div class="rs-skill-group-title">Core &amp; Soft Skills</div>
-                                <div class="skill-entry">DSA, Computer Networks, Operating Systems — core CS fundamentals</div>
-                                <div class="skill-entry">Problem-Solving, Team Player, Leadership, Adaptability</div>
-                                <div class="skill-entry"><strong>HackerRank:</strong> 5-star rating in C++ | Feb '26</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===== TAB: PROJECTS ===== -->
-                    <div class="resume-tab-panel" id="tab-projects">
-                        <div class="rs-card fade-in">
-                            <div class="rs-section-label">Projects</div>
-
-                            <div class="rs-item">
-                                <div class="rs-item-header">
-                                    <div class="rs-item-title">
-                                        Airline Service Quality Analysis Dashboard
-                                        <a href="https://github.com/lokhnadhgembali/Airline-Service-Quality-analysis-Dashboard" target="_blank">| GitHub</a>
-                                    </div>
-                                    <div class="rs-item-date">Oct' 25 – Dec' 25</div>
-                                </div>
-                                <ul class="rs-bullets">
-                                    <li>Created an interactive Airline Service Quality Dashboard leveraging a Kaggle dataset to analyze passenger satisfaction and key service performance metrics.</li>
-                                    <li>Performed data cleaning and transformation in Excel to improve data accuracy and consistency before importing into Power BI for reliable analysis and reporting.</li>
-                                    <li>Designed dynamic visualizations to analyze key factors such as customer ratings, delays, class types, and service quality metrics, enabling clear identification of improvement areas.</li>
-                                    <li>Generated actionable insights through KPIs and comparative charts that support data-driven decision-making for enhancing overall customer experience.</li>
-                                </ul>
-                                <div class="rs-techstack"><strong>Tech Stack:</strong> Microsoft Excel, Power BI</div>
-                            </div>
-
-                            <div class="rs-item">
-                                <div class="rs-item-header">
-                                    <div class="rs-item-title">
-                                        Student-Performance Analysis
-                                        <a href="https://github.com/lokhnadhgembali/Student-performance" target="_blank">| GitHub</a>
-                                    </div>
-                                    <div class="rs-item-date">Feb' 25 – Apr' 25</div>
-                                </div>
-                                <ul class="rs-bullets">
-                                    <li>Developed a data-driven approach to analyze student performance using <strong>650 records</strong> across <strong>12 academic</strong> and behavioral attributes, identifying key factors influencing academic success.</li>
-                                    <li>Processed, refined, and evaluated large student datasets to reveal trends in scores, attendance, and subject-wise achievement.</li>
-                                    <li>Established a streamlined data analysis workflow using Python libraries like NumPy, Pandas, Matplotlib, Seaborn and executed advanced EDA techniques, achieving <strong>90% model accuracy</strong> in performance prediction.</li>
-                                    <li>Produced insightful visualizations and reports that enabled data-driven decision-making for educational improvement.</li>
-                                </ul>
-                                <div class="rs-techstack"><strong>Tech Stack:</strong> Python, NumPy, Pandas, Matplotlib, Seaborn</div>
-                            </div>
-
-                            <div class="rs-item">
-                                <div class="rs-item-header">
-                                    <div class="rs-item-title">
-                                        Fake Job Detection
-                                        <a href="https://github.com/lokhnadhgembali" target="_blank">| GitHub</a>
-                                    </div>
-                                    <div class="rs-item-date">Jan' 26 – Mar' 26</div>
-                                </div>
-                                <ul class="rs-bullets">
-                                    <li>Engineered a <strong>Fake Job Detection</strong> system by analyzing 18,000+ job postings using TF-IDF vectorization, Logistic Regression, and rule-based suspicious pattern scoring.</li>
-                                    <li>Implemented a secure and scalable backend with <strong>FastAPI</strong> and <strong>MySQL</strong>, incorporating JWT authentication and Bcrypt password hashing.</li>
-                                    <li>Crafted a responsive web interface using <strong>React 19, Vite, Framer Motion, and Recharts</strong>, along with a real-time Admin Dashboard.</li>
-                                </ul>
-                                <div class="rs-techstack"><strong>Tech Stack:</strong> React, FastAPI, MySQL, Scikit-learn, Pandas, NLTK</div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <!-- ===== TAB: TRAINING ===== -->
-                    <div class="resume-tab-panel" id="tab-training">
-                        <div class="rs-card fade-in">
-                            <div class="rs-section-label">Training</div>
-
-                            <div class="rs-item">
-                                <div class="rs-item-header">
-                                    <div class="rs-item-title">A Hands On Approach To Data Science | LPU</div>
-                                    <div class="rs-item-date">Jun' 25 – Jul' 25</div>
-                                </div>
-                                <div class="rs-item-sub">Summer Training Program — Lovely Professional University</div>
-                                <ul class="rs-bullets">
-                                    <li>Attended an immersive summer training in Data Science, gaining practical expertise in end-to-end data handling and analytical tools.</li>
-                                    <li>Built strong proficiency in MySQL, Excel, Power BI, and Python with Machine Learning concepts by applying data cleaning, analysis, visualization, and ML techniques through guided modules and real-time exercises.</li>
-                                    <li>Delivered an Avocado Ripeness Analysis project using advanced data analysis and visualization techniques, achieving <strong>95% data accuracy</strong> and identifying key ripeness influencers through interactive dashboards.</li>
-                                </ul>
-                                <div class="rs-techstack"><strong>Tech Stack:</strong> SQL, Python, Microsoft Excel, Power BI</div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                    <!-- ===== TAB: CERTIFICATES ===== -->
-                    <div class="resume-tab-panel" id="tab-certificates">
-                        <div class="rs-card fade-in">
-                            <div class="rs-section-label">Certificates</div>
-
-                            <div class="cert-row">
-                                <div class="cert-row-left">Data Analytics Essentials | Cisco Networking Academy <a href="https://drive.google.com/file/d/1iYxv5vl7ga8E_oMDg9j99za4rQK1Vwua/view" target="_blank">| Link</a></div>
-                                <div class="cert-row-date">Dec' 25</div>
-                            </div>
-                            <div class="cert-row">
-                                <div class="cert-row-left">Power BI Workshop | Office Master <a href="https://certx.in/certificate/36a28147-6eed-47a5-8342-e5f926ebba61782982" target="_blank">| Link</a></div>
-                                <div class="cert-row-date">Nov' 25</div>
-                            </div>
-                            <div class="cert-row">
-                                <div class="cert-row-left">Privacy and Security in Online Social Media | NPTEL <a href="https://drive.google.com/file/d/17hYE2yMkyaQfUZBYLuZD36hlGTc6ROzh/view" target="_blank">| Link</a></div>
-                                <div class="cert-row-date">Nov' 25</div>
-                            </div>
-                            <div class="cert-row">
-                                <div class="cert-row-left">FrontEnd Web Development | Edyoda <a href="https://classroom.edyoda.com/public-certificate/lokhnadhgembali/FEMD240224" target="_blank">| Link</a></div>
-                                <div class="cert-row-date">Mar' 24</div>
-                            </div>
-                            <div class="cert-row">
-                                <div class="cert-row-left">Responsive Web Design | Free Code Camp <a href="https://www.freecodecamp.org/certification/fcce0d69dc2-d445-4f28-b7dd-f8cfda6eb8fb/responsive-web-design" target="_blank">| Link</a></div>
-                                <div class="cert-row-date">Dec' 23</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- ===== DOWNLOAD BUTTON ===== -->
-                    <div class="download-section fade-in">
-                        <a class="btn-download" href="general_cv.pdf" download="Gembali_Lokhnadh_General_CV.pdf">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
-                                <polyline points="7 10 12 15 17 10"/>
-                                <line x1="12" y1="15" x2="12" y2="3"/>
-                            </svg>
-                            Download
-                        </a>
-                        <p class="download-hint">Click to download my CV directly as a PDF</p>
-                    </div>
-
-                </div><!-- end .resume-outer -->
+          <!-- ===== RESUME HEADER ===== -->
+          <div class="resume-header-card fade-in">
+            <div class="rh-name">Gembali Lokhnadh</div>
+            <div class="rh-contacts">
+              <div class="rh-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:lokhnadhgembali@gmail.com">lokhnadhgembali@gmail.com</a>
+              </div>
+              <div class="rh-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.25 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-2.92-8.72A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+91 6305551901</span>
+              </div>
+              <div class="rh-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                <a href="https://www.linkedin.com/in/lokhnadh/" target="_blank" rel="noopener">linkedin.com/in/lokhnadh</a>
+              </div>
+              <div class="rh-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <a href="https://github.com/lokhnadhgembali" target="_blank" rel="noopener">github.com/lokhnadhgembali</a>
+              </div>
             </div>
-        </section>
-    </div>
+          </div>
 
-    <script src="js/nav.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-        // ===== TAB SWITCHING =====
-        const tabBtns = document.querySelectorAll('.rtab-btn');
-        const tabPanels = document.querySelectorAll('.resume-tab-panel');
+          <!-- ===== TABS NAVIGATION ===== -->
+          <div class="resume-tabs-nav fade-in">
+            <button class="rtab-btn active" data-tab="skills">Skills</button>
+            <button class="rtab-btn" data-tab="experience">Internship</button>
+            <button class="rtab-btn" data-tab="projects">Projects</button>
+            <button class="rtab-btn" data-tab="training">Training</button>
+            <button class="rtab-btn" data-tab="certificates">Certificates</button>
+            <button class="rtab-btn" data-tab="achievements">Achievements</button>
+            <button class="rtab-btn" data-tab="education">Education</button>
+          </div>
 
-        tabBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const target = btn.dataset.tab;
+          <!-- ===== TAB: SKILLS ===== -->
+          <div class="resume-tab-panel active" id="tab-skills">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Technical Skills</div>
 
-                tabBtns.forEach(b => b.classList.remove('active'));
-                tabPanels.forEach(p => p.classList.remove('active'));
+              <div class="rs-skill-group">
+                <div class="rs-skill-group-title">
+                  <span class="dot"></span> Languages
+                </div>
+                <div class="rs-tag-row">
+                  <span class="rs-tag">Python</span>
+                  <span class="rs-tag rs-tag-purple">C</span>
+                  <span class="rs-tag rs-tag-purple">C++</span>
+                  <span class="rs-tag rs-tag-green">Java</span>
+                </div>
+              </div>
 
-                btn.classList.add('active');
-                document.getElementById('tab-' + target).classList.add('active');
-            });
-        });
+              <div class="rs-skill-group">
+                <div class="rs-skill-group-title">
+                  <span class="dot"></span> Frameworks &amp; Libraries
+                </div>
+                <div class="rs-tag-row">
+                  <span class="rs-tag">HTML</span>
+                  <span class="rs-tag rs-tag-purple">CSS</span>
+                  <span class="rs-tag rs-tag-green">NumPy</span>
+                  <span class="rs-tag">Pandas</span>
+                  <span class="rs-tag rs-tag-pink">Matplotlib</span>
+                  <span class="rs-tag rs-tag-purple">Seaborn</span>
+                  <span class="rs-tag rs-tag-green">Scikit-learn</span>
+                  <span class="rs-tag">Next.js</span>
+                  <span class="rs-tag rs-tag-pink">React</span>
+                  <span class="rs-tag rs-tag-purple">Tailwind CSS</span>
+                  <span class="rs-tag rs-tag-green">Flask</span>
+                  <span class="rs-tag">FastAPI</span>
+                  <span class="rs-tag rs-tag-purple">Framer Motion</span>
+                </div>
+              </div>
 
-    </script>
+              <div class="rs-skill-group">
+                <div class="rs-skill-group-title">
+                  <span class="dot"></span> Tools &amp; Platforms
+                </div>
+                <div class="rs-tag-row">
+                  <span class="rs-tag">MySQL</span>
+                  <span class="rs-tag rs-tag-green">Microsoft Excel</span>
+                  <span class="rs-tag">Power BI</span>
+                  <span class="rs-tag rs-tag-purple">Git</span>
+                  <span class="rs-tag rs-tag-pink">GitHub</span>
+                  <span class="rs-tag">VS Code</span>
+                  <span class="rs-tag rs-tag-green">Jupyter Notebook</span>
+                  <span class="rs-tag rs-tag-purple">SQLAlchemy</span>
+                </div>
+              </div>
 
+              <div class="rs-skill-group">
+                <div class="rs-skill-group-title">
+                  <span class="dot"></span> Core &amp; Soft Skills
+                </div>
+                <div class="rs-tag-row">
+                  <span class="rs-tag">DSA</span>
+                  <span class="rs-tag rs-tag-purple">Computer Networks</span>
+                  <span class="rs-tag rs-tag-green">Operating Systems</span>
+                  <span class="rs-tag">Problem-Solving</span>
+                  <span class="rs-tag rs-tag-pink">Team Collaboration</span>
+                  <span class="rs-tag rs-tag-purple">Communication</span>
+                  <span class="rs-tag">Adaptability</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== TAB: INTERNSHIP / EXPERIENCE ===== -->
+          <div class="resume-tab-panel" id="tab-experience">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Internship</div>
+
+              <div class="rs-item">
+                <div class="rs-item-header">
+                  <div>
+                    <div class="rs-item-org">Infosys Springboard</div>
+                    <div class="rs-item-role">Virtual Internship &mdash; AI &amp; Full-Stack Development</div>
+                  </div>
+                  <span class="rs-item-date">Feb&rsquo;26 &mdash; Apr&rsquo;26</span>
+                </div>
+                <ul class="rs-bullets">
+                  <li>Architected an AI-powered fake job detection platform using Flask, SQLAlchemy, REST APIs, and ML models, achieving <strong>97.2% classification accuracy</strong> on 18K+ job postings.</li>
+                  <li>Engineered a secure backend with <strong>JWT authentication</strong> and optimized database management workflows.</li>
+                  <li>Constructed a responsive admin dashboard using <strong>Next.js, React, and Tailwind CSS</strong> for real-time fraud monitoring.</li>
+                  <li>Empowered organizations to detect fraudulent listings <strong>3&times; faster</strong> through real-time activity tracking.</li>
+                </ul>
+                <div class="rs-techstack">
+                  <strong>Tech Stack:</strong>
+                  <span class="rs-tag" style="font-size:0.74rem;padding:2px 8px;">Next.js</span>
+                  <span class="rs-tag rs-tag-green" style="font-size:0.74rem;padding:2px 8px;">FastAPI</span>
+                  <span class="rs-tag rs-tag-purple" style="font-size:0.74rem;padding:2px 8px;">SQL</span>
+                  <span class="rs-tag" style="font-size:0.74rem;padding:2px 8px;">Tailwind CSS</span>
+                  <span class="rs-tag rs-tag-pink" style="font-size:0.74rem;padding:2px 8px;">Framer Motion</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== TAB: PROJECTS ===== -->
+          <div class="resume-tab-panel" id="tab-projects">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Projects</div>
+
+              <!-- Music Genre Classification -->
+              <div class="rs-item">
+                <div class="rs-item-header">
+                  <div class="rs-item-title">
+                    Music Genre Classification
+                    <a class="rs-gh-link" href="https://github.com/lokhnadhgembali/Music-Genre-Classification" target="_blank" rel="noopener">GitHub &nearr;</a>
+                  </div>
+                  <span class="rs-item-date">Apr&rsquo;26 &mdash; May&rsquo;26</span>
+                </div>
+                <ul class="rs-bullets">
+                  <li>Built a multiclass music genre classification system using <strong>Random Forest and XGBoost</strong> trained on 40K+ music tracks.</li>
+                  <li>Processed raw audio metadata through feature engineering and scaling to eliminate data leakage and improve model generalization.</li>
+                  <li>Achieved <strong>57.8% classification accuracy</strong> using XGBoost with cross-validation and comparative evaluation against baseline Random Forest models.</li>
+                  <li>Established genre prediction patterns using confusion matrices, feature importance visualization, and ensemble model evaluation techniques.</li>
+                </ul>
+                <div class="rs-techstack">
+                  <strong>Tech Stack:</strong>
+                  <span class="rs-tag" style="font-size:0.74rem;padding:2px 8px;">Python</span>
+                  <span class="rs-tag rs-tag-green" style="font-size:0.74rem;padding:2px 8px;">NumPy</span>
+                  <span class="rs-tag rs-tag-purple" style="font-size:0.74rem;padding:2px 8px;">Pandas</span>
+                  <span class="rs-tag" style="font-size:0.74rem;padding:2px 8px;">Scikit-learn</span>
+                  <span class="rs-tag rs-tag-pink" style="font-size:0.74rem;padding:2px 8px;">XGBoost</span>
+                </div>
+              </div>
+
+              <!-- Airline Dashboard -->
+              <div class="rs-item">
+                <div class="rs-item-header">
+                  <div class="rs-item-title">
+                    Airline Service Quality Analysis Dashboard
+                    <a class="rs-gh-link" href="https://github.com/lokhnadhgembali/Airline-Service-Quality-analysis-Dashboard" target="_blank" rel="noopener">GitHub &nearr;</a>
+                  </div>
+                  <span class="rs-item-date">Oct&rsquo;25 &mdash; Dec&rsquo;25</span>
+                </div>
+                <ul class="rs-bullets">
+                  <li>Created an interactive <strong>Power BI dashboard</strong> analyzing 10,000+ passenger records to evaluate customer satisfaction and service quality.</li>
+                  <li>Enhanced data accuracy by <strong>7%</strong> through data cleaning and validation using Excel and Power BI.</li>
+                  <li>Designed <strong>15+ KPI dashboards</strong>, slicers, and trend charts for delay, service, and feedback analysis.</li>
+                  <li>Enabled data-driven decision-making by identifying service gaps and operational inefficiencies.</li>
+                </ul>
+                <div class="rs-techstack">
+                  <strong>Tech Stack:</strong>
+                  <span class="rs-tag rs-tag-green" style="font-size:0.74rem;padding:2px 8px;">Microsoft Excel</span>
+                  <span class="rs-tag" style="font-size:0.74rem;padding:2px 8px;">Power BI</span>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ===== TAB: TRAINING ===== -->
+          <div class="resume-tab-panel" id="tab-training">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Training</div>
+
+              <div class="rs-item">
+                <div class="rs-item-header">
+                  <div>
+                    <div class="rs-item-org">Lovely Professional University</div>
+                    <div class="rs-item-role">A Hands On Approach To Data Science &nbsp;&mdash;&nbsp; Summer Training Program</div>
+                  </div>
+                  <span class="rs-item-date">Jun&rsquo;25 &mdash; Jul&rsquo;25</span>
+                </div>
+                <ul class="rs-bullets">
+                  <li>Attended an immersive summer training in Data Science, gaining hands-on experience in end-to-end data handling, analysis, and visualization workflows.</li>
+                  <li>Developed proficiency in <strong>MySQL, Excel, Power BI, and Python</strong> through real-world data analysis projects.</li>
+                  <li>Delivered an <strong>Avocado Ripeness Analysis</strong> project achieving <strong>95% prediction accuracy</strong> on 500+ samples using Computer Vision techniques.</li>
+                  <li>Applied EDA, visualization, and dashboarding techniques to generate actionable business insights.</li>
+                </ul>
+                <div class="rs-techstack">
+                  <strong>Tech Stack:</strong>
+                  <span class="rs-tag" style="font-size:0.74rem;padding:2px 8px;">SQL</span>
+                  <span class="rs-tag rs-tag-green" style="font-size:0.74rem;padding:2px 8px;">Python</span>
+                  <span class="rs-tag rs-tag-purple" style="font-size:0.74rem;padding:2px 8px;">Microsoft Excel</span>
+                  <span class="rs-tag" style="font-size:0.74rem;padding:2px 8px;">Power BI</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ===== TAB: CERTIFICATES ===== -->
+          <div class="resume-tab-panel" id="tab-certificates">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Certificates</div>
+
+              <div class="cert-row">
+                <div class="cert-row-left">
+                  Python for Data Science &nbsp;&mdash;&nbsp; <strong>IBM</strong>
+                  <a href="https://courses.skillsbuild.skillsnetwork.site/certificates/a50a1c588bb14f118717493e5663d4f4" target="_blank" rel="noopener">View &nearr;</a>
+                </div>
+                <div class="cert-row-date">Apr&rsquo;26</div>
+              </div>
+
+              <div class="cert-row">
+                <div class="cert-row-left">
+                  Oracle Cloud Infrastructure 2025 Certified AI Foundations Associate &nbsp;&mdash;&nbsp; <strong>Oracle</strong>
+                  <a href="https://drive.google.com/file/d/12xbgXJJiT0uINnYi9Reuke7De0dBFbTN/view" target="_blank" rel="noopener">View &nearr;</a>
+                </div>
+                <div class="cert-row-date">Mar&rsquo;26</div>
+              </div>
+
+              <div class="cert-row">
+                <div class="cert-row-left">
+                  Data Analytics Essentials &nbsp;&mdash;&nbsp; <strong>Cisco Networking Academy</strong>
+                  <a href="https://drive.google.com/file/d/1iYxv5vl7ga8E_oMDg9j99za4rQK1Vwua/view" target="_blank" rel="noopener">View &nearr;</a>
+                </div>
+                <div class="cert-row-date">Dec&rsquo;25</div>
+              </div>
+
+              <div class="cert-row">
+                <div class="cert-row-left">
+                  Privacy and Security in Online Social Media &nbsp;&mdash;&nbsp; <strong>NPTEL</strong>
+                  <a href="https://drive.google.com/file/d/17hYE2yMkyaQfUZBYLuZD36hlGTc6ROzh/view" target="_blank" rel="noopener">View &nearr;</a>
+                </div>
+                <div class="cert-row-date">Nov&rsquo;25</div>
+              </div>
+
+              <div class="cert-row">
+                <div class="cert-row-left">
+                  Responsive Web Design &nbsp;&mdash;&nbsp; <strong>freeCodeCamp</strong>
+                  <a href="https://www.freecodecamp.org/certification/fcce0d69dc2-d445-4f28-b7dd-f8cfda6eb8fb/responsive-web-design" target="_blank" rel="noopener">View &nearr;</a>
+                </div>
+                <div class="cert-row-date">Dec&rsquo;23</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ===== TAB: ACHIEVEMENTS ===== -->
+          <div class="resume-tab-panel" id="tab-achievements">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Achievements</div>
+
+              <div class="achieve-row">
+                <div class="achieve-row-left">
+                  <strong>Open Source Contributor</strong> &mdash; Engaged as a contributor at GirlScript Summer of Code 2026, contributing to real-world open-source development workflows on GitHub.
+                </div>
+                <div class="achieve-row-date">May&rsquo;26</div>
+              </div>
+
+              <div class="achieve-row">
+                <div class="achieve-row-left">
+                  <strong>LeetCode</strong> &mdash; Solved <strong>100+</strong> problems across various difficulty levels, sharpening algorithmic thinking and DSA skills.
+                </div>
+                <div class="achieve-row-date">Apr&rsquo;26</div>
+              </div>
+
+              <div class="achieve-row">
+                <div class="achieve-row-left">
+                  <strong>HackerRank</strong> &mdash; Earned a <strong>5-star rating in C++</strong>, demonstrating advanced proficiency in systems-level programming.
+                </div>
+                <div class="achieve-row-date">Feb&rsquo;26</div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ===== TAB: EDUCATION ===== -->
+          <div class="resume-tab-panel" id="tab-education">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Education</div>
+
+              <div class="edu-row">
+                <div class="edu-row-left">
+                  <div class="edu-inst">Lovely Professional University</div>
+                  <div class="edu-degree">Bachelor of Technology &mdash; Computer Science and Engineering;&nbsp; <strong>CGPA: 7.13</strong></div>
+                </div>
+                <div class="edu-row-right">
+                  <div class="edu-location">Phagwara, Punjab</div>
+                  <div class="edu-date">Since Aug&rsquo;23</div>
+                </div>
+              </div>
+
+              <div class="edu-row">
+                <div class="edu-row-left">
+                  <div class="edu-inst">Sri Chaitanya Junior College</div>
+                  <div class="edu-degree">Intermediate;&nbsp; <strong>Percentage: 84.6%</strong></div>
+                </div>
+                <div class="edu-row-right">
+                  <div class="edu-location">Vishakhapatnam, Andhra Pradesh</div>
+                  <div class="edu-date">Jun&rsquo;21 &mdash; May&rsquo;22</div>
+                </div>
+              </div>
+
+              <div class="edu-row">
+                <div class="edu-row-left">
+                  <div class="edu-inst">Sri Ramakrishna School</div>
+                  <div class="edu-degree">Matriculation;&nbsp; <strong>Percentage: 85.5%</strong></div>
+                </div>
+                <div class="edu-row-right">
+                  <div class="edu-location">Vishakhapatnam, Andhra Pradesh</div>
+                  <div class="edu-date">Jun&rsquo;19 &mdash; Mar&rsquo;20</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- ===== DOWNLOAD BUTTON ===== -->
+          <div class="download-section fade-in">
+            <a class="btn-download" href="Lokhnadh_CV.pdf" download="Gembali_Lokhnadh_CV.pdf">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download
+            </a>
+          </div>
+
+        </div><!-- end .resume-outer -->
+      </div>
+    </section>
+  </div>
+
+  <script src="js/nav.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    // ===== TAB SWITCHING =====
+    const tabBtns = document.querySelectorAll('.rtab-btn');
+    const tabPanels = document.querySelectorAll('.resume-tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const panel = document.getElementById('tab-' + target);
+        if (panel) panel.classList.add('active');
+      });
+    });
+  </script>
 </body>
+
 </html>
