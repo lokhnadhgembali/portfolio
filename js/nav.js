@@ -197,12 +197,18 @@
   // Apply theme immediately (before DOMContentLoaded) to avoid flash
   applyTheme(getTheme());
 
-  document.addEventListener('DOMContentLoaded', () => {
+  function initNav() {
     createBgEffects();
     createScrollProgress();
     createNav();
     createFooter();
     // Re-apply theme icons after nav is created
     applyTheme(getTheme());
-  });
-});
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNav);
+  } else {
+    initNav();
+  }
+})();

@@ -3,7 +3,7 @@
 // Animations, typing effect, interactions
 // ========================================
 
-document.addEventListener('DOMContentLoaded', () => {
+function initMain() {
 
     // ===== SCROLL REVEAL ANIMATIONS =====
     const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
@@ -222,4 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.head.appendChild(style);
     }
-});
+}
+
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMain);
+} else {
+    initMain();
+}
