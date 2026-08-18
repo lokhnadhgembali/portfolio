@@ -222,6 +222,24 @@ function initMain() {
         `;
         document.head.appendChild(style);
     }
+
+    // ===== ROLLING TEXT LABELS =====
+    document.querySelectorAll('.section-label').forEach(label => {
+        if (!label.querySelector('.label-window')) {
+            const text = label.textContent.trim();
+            label.innerHTML = `
+                <span class="label-window">
+                    <span class="label-copy">${text}</span>
+                    <span class="label-copy label-copy--incoming" aria-hidden="true">${text}</span>
+                </span>
+                <span class="label-icon" aria-hidden="true">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="m9 18 6-6-6-6"/>
+                    </svg>
+                </span>
+            `;
+        }
+    });
 }
 
 if (document.readyState === 'loading') {
