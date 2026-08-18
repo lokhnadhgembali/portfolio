@@ -94,22 +94,40 @@ function initMain() {
 
     progressBars.forEach(bar => progressObserver.observe(bar));
 
-    // ===== PROJECT FILTER =====
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectCards = document.querySelectorAll('.project-card');
+    // ===== HORIZONTAL SCROLL PROJECTS GALLERY =====
+    const scrollContainer = document.getElementById('projectsScrollContainer');
+    const gallery = document.getElementById('projectsGallery');
+    const progressFill = document.getElementById('projectsScrollProgress');
 
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const filter = btn.getAttribute('data-filter');
-            projectCards.forEach(card => {
-                const show = filter === 'all' || card.getAttribute('data-category') === filter;
-                card.style.display = show ? 'block' : 'none';
-                if (show) card.style.animation = 'slideUp 0.3s ease forwards';
-            });
-        });
-    });
+    if (scrollContainer && gallery) {
+        function updateHorizontalScroll() {
+            const rect = scrollContainer.getBoundingClientRect();
+            const containerHeight = scrollContainer.offsetHeight;
+            const viewportHeight = window.innerHeight;
+            const totalScrollable = containerHeight - viewportHeight;
+
+            if (totalScrollable <= 0) return;
+
+            const currentScroll = -rect.top;
+            let progress = currentScroll / totalScrollable;
+            progress = Math.max(0, Math.min(1, progress));
+
+            const galleryWidth = gallery.scrollWidth;
+            const viewportWidth = window.innerWidth;
+            const paddingLeft = Math.max(24, (viewportWidth - 1200) / 2 + 24);
+            const totalDistance = Math.max(0, galleryWidth - viewportWidth + paddingLeft + 60);
+
+            gallery.style.transform = `translateX(-${progress * totalDistance}px)`;
+
+            if (progressFill) {
+                progressFill.style.width = `${progress * 100}%`;
+            }
+        }
+
+        window.addEventListener('scroll', updateHorizontalScroll, { passive: true });
+        window.addEventListener('resize', updateHorizontalScroll, { passive: true });
+        updateHorizontalScroll();
+    }
 
     // ===== CONTACT FORM =====
     const contactForm = document.getElementById('contactForm');

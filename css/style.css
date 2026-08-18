@@ -1945,6 +1945,210 @@ section { padding: var(--section-padding); }
   color: white;
 }
 
+/* ==================== HORIZONTAL SCROLL PROJECTS ==================== */
+.projects-scroll-section {
+  position: relative;
+  padding: 0;
+  overflow: visible;
+}
+
+.projects-scroll-container {
+  height: 320vh;
+  position: relative;
+}
+
+.projects-sticky-wrapper {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+.projects-sticky-header {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto 20px;
+  padding: 0 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+
+.projects-header-left {
+  flex: 1;
+}
+
+.projects-scroll-indicator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.projects-scroll-indicator-text {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.projects-scroll-progress-bar {
+  width: 140px;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+
+.projects-scroll-progress-fill {
+  height: 100%;
+  width: 0%;
+  background: var(--gradient-main);
+  border-radius: var(--radius-full);
+  transition: width 0.05s linear;
+}
+
+.projects-gallery {
+  display: flex;
+  gap: 32px;
+  will-change: transform;
+  padding-left: max(24px, calc((100vw - 1200px) / 2 + 24px));
+  padding-right: 120px;
+  transition: transform 0.08s linear;
+}
+
+.project-gallery-item {
+  flex-shrink: 0;
+  width: 440px;
+  background: var(--bg-card);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-2xl);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  position: relative;
+  backdrop-filter: blur(20px);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-gallery-item:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent-border);
+  box-shadow: 0 16px 40px rgba(249, 115, 22, 0.18);
+}
+
+.project-item-top {
+  padding: 28px 28px 16px;
+  position: relative;
+}
+
+.project-item-badge-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.project-item-number {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent);
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+}
+
+.project-item-category {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  background: var(--accent-subtle);
+  color: var(--accent);
+  border: 1px solid var(--accent-border);
+}
+
+.project-item-icon {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.project-item-title {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  line-height: 1.35;
+}
+
+.project-item-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.project-item-bottom {
+  padding: 16px 28px 24px;
+  border-top: 1px solid var(--bg-glass-border);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.project-item-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+@media (max-width: 768px) {
+  .project-gallery-item {
+    width: 320px;
+  }
+  .project-item-top {
+    padding: 20px 20px 12px;
+  }
+  .project-item-bottom {
+    padding: 14px 20px 20px;
+  }
+  .project-item-title {
+    font-size: 1.15rem;
+  }
+  .project-item-desc {
+    font-size: 0.82rem;
+  }
+  .projects-sticky-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-scroll-container {
+    height: auto;
+  }
+  .projects-sticky-wrapper {
+    position: relative;
+    height: auto;
+    overflow-x: auto;
+  }
+  .projects-gallery {
+    transform: none !important;
+  }
+}
+
 /* ========== SCROLLBAR ========== */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--scrollbar-track); }
