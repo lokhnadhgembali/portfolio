@@ -65,15 +65,15 @@
       const isActive = index === 0;
       return `<a href="${page.href}" class="${isActive ? 'active' : ''}">
         <span class="nav-label-window">
-          <span class="nav-label-copy">${page.name}</span>
-          <span class="nav-label-copy nav-label-copy--incoming" aria-hidden="true">${page.name}</span>
+          <span class="nav-label-copy nav-label-copy--primary">${page.name}</span>
+          <span class="nav-label-copy nav-label-copy--hover" aria-hidden="true">${page.name}</span>
         </span>
       </a>`;
     }).join('');
 
     nav.innerHTML = `
       <div class="container">
-        <a href="#hero" class="nav-logo">GL.</a>
+        <a href="#hero" class="nav-logo">GL</a>
         <div class="nav-right">
           <div class="nav-links" id="navLinks">
             ${linksHTML}
@@ -119,41 +119,6 @@
     });
 
     navAnchors.forEach(link => {
-      let active = false;
-      let animating = false;
-      let pending = null;
-
-      function requestActive(next) {
-        if (next === active) {
-          pending = null;
-          return;
-        }
-        if (animating) {
-          pending = next;
-          return;
-        }
-        animating = true;
-        active = next;
-        if (active) link.classList.add('hover-active');
-        else link.classList.remove('hover-active');
-
-        setTimeout(() => {
-          animating = false;
-          if (pending !== null && pending !== active) {
-            const nextReq = pending;
-            pending = null;
-            requestActive(nextReq);
-          } else {
-            pending = null;
-          }
-        }, 300);
-      }
-
-      link.addEventListener('mouseenter', () => requestActive(true));
-      link.addEventListener('mouseleave', () => requestActive(false));
-      link.addEventListener('focus', () => requestActive(true));
-      link.addEventListener('blur', () => requestActive(false));
-
       link.addEventListener('click', (e) => {
         const targetId = link.getAttribute('href');
         if (targetId && targetId.startsWith('#')) {
@@ -169,6 +134,7 @@
         }
       });
     });
+
 
     document.addEventListener('click', (e) => {
       if (!nav.contains(e.target)) {
@@ -236,47 +202,69 @@
     });
   }
 
-  // ===== CREATE FOOTER =====
+  // ===== CREATE FLOATING LIQUID-GLASS FOOTER =====
   function createFooter() {
     const footer = document.createElement('footer');
     footer.className = 'footer';
     footer.innerHTML = `
       <div class="container">
-        <div class="footer-content">
-          <div class="footer-social">
-            <a href="https://github.com/lokhnadhgembali" target="_blank" title="GitHub" rel="noopener noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        <div class="footer-glass-bar">
+          <div class="footer-glass-left">
+            <span class="footer-brand-name">Gembali Lokhnadh</span>
+            <span class="footer-brand-sub">Computer Science Student &amp; Data Analyst</span>
+          </div>
+          <div class="footer-social-icons">
+            <a href="https://github.com/lokhnadhgembali" target="_blank" rel="noopener noreferrer" class="footer-social-icon" title="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
             </a>
-            <a href="https://www.linkedin.com/in/lokhnadh/" target="_blank" title="LinkedIn" rel="noopener noreferrer">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://www.linkedin.com/in/lokhnadh/" target="_blank" rel="noopener noreferrer" class="footer-social-icon" title="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
             </a>
-            <a href="mailto:lokhnadhgembali@gmail.com" title="Email">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            <a href="mailto:lokhnadhgembali@gmail.com" class="footer-social-icon" title="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </a>
           </div>
-          <div class="footer-links">
-            ${navPages.map(p => `<a href="${p.href}">${p.name}</a>`).join('')}
-          </div>
-          <p class="footer-copyright">© 2026 Gembali Lokhnadh · Crafted with passion &amp; code.</p>
         </div>
+        <p class="footer-copyright-text">© 2026 Gembali Lokhnadh · Crafted with passion &amp; code.</p>
       </div>
     `;
     document.body.appendChild(footer);
+
+    // Add Floating Scroll-to-Top Button
+    const scrollTopBtn = document.createElement('button');
+    scrollTopBtn.className = 'scroll-to-top-btn';
+    scrollTopBtn.setAttribute('aria-label', 'Scroll to top');
+    scrollTopBtn.innerHTML = `
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    `;
+    document.body.appendChild(scrollTopBtn);
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        scrollTopBtn.classList.add('visible');
+      } else {
+        scrollTopBtn.classList.remove('visible');
+      }
+    }, { passive: true });
+
+    scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
   }
 
-  // ===== BACKGROUND EFFECTS =====
+  // ===== AMBIENT GLOW & GRAIN BACKGROUND EFFECTS =====
   function createBgEffects() {
-    const grid = document.createElement('div');
-    grid.className = 'bg-grid';
-    document.body.prepend(grid);
-
-    const glow1 = document.createElement('div');
-    glow1.className = 'bg-glow bg-glow-1';
-    document.body.prepend(glow1);
-
-    const glow2 = document.createElement('div');
-    glow2.className = 'bg-glow bg-glow-2';
-    document.body.prepend(glow2);
+    const bgContainer = document.createElement('div');
+    bgContainer.className = 'ambient-mesh-container';
+    bgContainer.setAttribute('aria-hidden', 'true');
+    bgContainer.innerHTML = `
+      <div class="mesh-orb mesh-orb-1"></div>
+      <div class="mesh-orb mesh-orb-2"></div>
+      <div class="mesh-orb mesh-orb-3"></div>
+      <div class="mesh-orb mesh-orb-4"></div>
+      <div class="grain-overlay"></div>
+    `;
+    document.body.prepend(bgContainer);
   }
 
   // ===== INITIALIZE =====

@@ -210,35 +210,133 @@ function initMain() {
         });
     });
 
-    // ===== PARTICLES (hero section) =====
+    // ===== INTERACTIVE EMBER CONSTELLATION CANVAS =====
     const particleContainer = document.getElementById('particles');
     if (particleContainer) {
-        for (let i = 0; i < 35; i++) {
-            const particle = document.createElement('div');
-            const isOrange = Math.random() > 0.4;
-            particle.style.cssText = `
-                position: absolute;
-                width: ${Math.random() * 4 + 1}px;
-                height: ${Math.random() * 4 + 1}px;
-                background: ${isOrange ? 'rgba(249,115,22,0.35)' : 'rgba(251,146,60,0.25)'};
-                border-radius: 50%;
-                top: ${Math.random() * 100}%;
-                left: ${Math.random() * 100}%;
-                animation: particleFloat ${Math.random() * 12 + 6}s ease-in-out infinite;
-                animation-delay: ${Math.random() * 5}s;
-            `;
-            particleContainer.appendChild(particle);
+        particleContainer.innerHTML = '';
+        const canvas = document.createElement('canvas');
+        canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;';
+        particleContainer.appendChild(canvas);
+
+        const ctx = canvas.getContext('2d');
+        let width = (canvas.width = particleContainer.offsetWidth);
+        let height = (canvas.height = particleContainer.offsetHeight);
+
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 35 : 65;
+        const particles = [];
+
+        let mouse = { x: -1000, y: -1000, radius: 140 };
+
+        window.addEventListener('mousemove', (e) => {
+            const rect = canvas.getBoundingClientRect();
+            mouse.x = e.clientX - rect.left;
+            mouse.y = e.clientY - rect.top;
+        }, { passive: true });
+
+        window.addEventListener('mouseleave', () => {
+            mouse.x = -1000;
+            mouse.y = -1000;
+        });
+
+        window.addEventListener('resize', () => {
+            if (!particleContainer) return;
+            width = canvas.width = particleContainer.offsetWidth;
+            height = canvas.height = particleContainer.offsetHeight;
+        }, { passive: true });
+
+        class EmberParticle {
+            constructor() {
+                this.reset(true);
+            }
+
+            reset(initial = false) {
+                this.x = Math.random() * width;
+                this.y = initial ? Math.random() * height : height + Math.random() * 20;
+                this.size = Math.random() * 2.6 + 0.8;
+                this.speedY = -(Math.random() * 0.7 + 0.3);
+                this.speedX = (Math.random() - 0.5) * 0.5;
+                this.alpha = Math.random() * 0.6 + 0.2;
+                this.targetAlpha = this.alpha;
+                this.glow = Math.random() * 8 + 4;
+                // Hue spectrum: Electric Violet to Neon Pink and Lavender
+                const colors = [
+                    'rgba(139, 92, 246, ',
+                    'rgba(236, 72, 153, ',
+                    'rgba(167, 139, 250, ',
+                    'rgba(244, 114, 182, '
+                ];
+                this.color = colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.y += this.speedY;
+                this.x += this.speedX;
+
+                // Mouse interaction repulsion
+                const dx = mouse.x - this.x;
+                const dy = mouse.y - this.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+                if (dist < mouse.radius) {
+                    const force = (mouse.radius - dist) / mouse.radius;
+                    this.x -= (dx / dist) * force * 3;
+                    this.y -= (dy / dist) * force * 3;
+                }
+
+                if (this.y < -20 || this.x < -20 || this.x > width + 20) {
+                    this.reset(false);
+                }
+            }
+
+            draw() {
+                ctx.save();
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fillStyle = `${this.color}${this.alpha})`;
+                ctx.shadowColor = 'rgba(139, 92, 246, 0.7)';
+                ctx.shadowBlur = this.glow;
+                ctx.fill();
+                ctx.restore();
+            }
         }
 
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes particleFloat {
-                0%, 100% { transform: translate(0,0) scale(1); opacity: 0.4; }
-                33% { transform: translate(${Math.random()*80-40}px, ${Math.random()*-100}px) scale(1.4); opacity: 0.9; }
-                66% { transform: translate(${Math.random()*60-30}px, ${Math.random()*-160}px) scale(0.7); opacity: 0.2; }
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new EmberParticle());
+        }
+
+        let animationFrameId;
+        function animateCanvas() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Connect nearby particles with subtle glowing lines
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+                    const maxDist = 95;
+
+                    if (dist < maxDist) {
+                        const alpha = (1 - dist / maxDist) * 0.18;
+                        ctx.beginPath();
+                        ctx.strokeStyle = `rgba(139, 92, 246, ${alpha})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.stroke();
+                    }
+                }
             }
-        `;
-        document.head.appendChild(style);
+
+            particles.forEach((p) => {
+                p.update();
+                p.draw();
+            });
+
+            animationFrameId = requestAnimationFrame(animateCanvas);
+        }
+
+        animateCanvas();
     }
 }
 
