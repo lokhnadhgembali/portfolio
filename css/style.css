@@ -387,8 +387,11 @@ section { padding: var(--section-padding); }
   transition: all 0.3s cubic-bezier(0.338, 0.015, 0.395, 0.959);
 }
 
-.section-label:hover {
-  background: rgba(249, 115, 22, 0.16);
+.section-label:hover,
+.section-label:focus-visible,
+.section-label.active,
+.section-label.is-rolling {
+  background: rgba(249, 115, 22, 0.18);
   border-color: var(--accent);
   box-shadow: 0 4px 20px var(--accent-glow);
   transform: translateY(-2px);
@@ -396,15 +399,17 @@ section { padding: var(--section-padding); }
 
 .section-label .label-window {
   position: relative;
-  display: block;
-  width: max-content;
+  display: inline-block;
+  height: 1.3em;
   overflow: hidden;
-  line-height: 1.35;
+  vertical-align: middle;
 }
 
 .section-label .label-copy {
-  display: block;
+  display: flex;
+  align-items: center;
   white-space: nowrap;
+  height: 100%;
   transform: translateY(0%);
   transition: transform 0.35s cubic-bezier(0.338, 0.015, 0.395, 0.959);
 }
@@ -417,11 +422,17 @@ section { padding: var(--section-padding); }
   pointer-events: none;
 }
 
-.section-label:hover .label-copy:not(.label-copy--incoming) {
+.section-label:hover .label-copy:not(.label-copy--incoming),
+.section-label:focus-visible .label-copy:not(.label-copy--incoming),
+.section-label.active .label-copy:not(.label-copy--incoming),
+.section-label.is-rolling .label-copy:not(.label-copy--incoming) {
   transform: translateY(100%);
 }
 
-.section-label:hover .label-copy--incoming {
+.section-label:hover .label-copy--incoming,
+.section-label:focus-visible .label-copy--incoming,
+.section-label.active .label-copy--incoming,
+.section-label.is-rolling .label-copy--incoming {
   transform: translateY(0%);
 }
 
@@ -433,7 +444,10 @@ section { padding: var(--section-padding); }
   transition: transform 0.3s cubic-bezier(0.338, 0.015, 0.395, 0.959);
 }
 
-.section-label:hover .label-icon {
+.section-label:hover .label-icon,
+.section-label:focus-visible .label-icon,
+.section-label.active .label-icon,
+.section-label.is-rolling .label-icon {
   transform: translateX(3px);
 }
 

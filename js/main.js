@@ -224,7 +224,8 @@ function initMain() {
     }
 
     // ===== ROLLING TEXT LABELS =====
-    document.querySelectorAll('.section-label').forEach(label => {
+    const labels = document.querySelectorAll('.section-label');
+    labels.forEach(label => {
         if (!label.querySelector('.label-window')) {
             const text = label.textContent.trim();
             label.innerHTML = `
@@ -239,7 +240,63 @@ function initMain() {
                 </span>
             `;
         }
+
+        // Interactive animation queue matching React Motion logic
+        let active = false;
+        let animating = false;
+        let pending = null;
+
+        function requestActive(next) {
+            if (next === active) {
+                pending = null;
+                return;
+            }
+            if (animating) {
+                pending = next;
+                return;
+            }
+            animating = true;
+            active = next;
+            if (active) label.classList.add('active');
+            else label.classList.remove('active');
+
+            setTimeout(() => {
+                animating = false;
+                if (pending !== null && pending !== active) {
+                    const nextReq = pending;
+                    pending = null;
+                    requestActive(nextReq);
+                } else {
+                    pending = null;
+                }
+            }, 350);
+        }
+
+        label.addEventListener('mouseenter', () => requestActive(true));
+        label.addEventListener('mouseleave', () => requestActive(false));
+        label.addEventListener('focus', () => requestActive(true));
+        label.addEventListener('blur', () => requestActive(false));
+        label.addEventListener('click', () => {
+            label.classList.add('is-rolling');
+            setTimeout(() => label.classList.remove('is-rolling'), 600);
+        });
     });
+
+    // Auto-roll when scrolled into view
+    const labelObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                setTimeout(() => {
+                    el.classList.add('is-rolling');
+                    setTimeout(() => el.classList.remove('is-rolling'), 700);
+                }, 200);
+                labelObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.6 });
+
+    labels.forEach(l => labelObserver.observe(l));
 }
 
 if (document.readyState === 'loading') {
