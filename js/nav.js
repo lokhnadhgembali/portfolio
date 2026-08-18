@@ -74,7 +74,12 @@
     const linksHTML = navPages.map(page => {
       const pageSlug = page.href.replace(/\.html$/, '') || 'index';
       const isActive = currentPage === pageSlug;
-      return `<a href="${page.href}" class="${isActive ? 'active' : ''}">${page.name}</a>`;
+      return `<a href="${page.href}" class="${isActive ? 'active' : ''}">
+        <span class="nav-label-window">
+          <span class="nav-label-copy">${page.name}</span>
+          <span class="nav-label-copy nav-label-copy--incoming" aria-hidden="true">${page.name}</span>
+        </span>
+      </a>`;
     }).join('');
 
     nav.innerHTML = `
@@ -124,6 +129,41 @@
     });
 
     links.querySelectorAll('a').forEach(link => {
+      let active = false;
+      let animating = false;
+      let pending = null;
+
+      function requestActive(next) {
+        if (next === active) {
+          pending = null;
+          return;
+        }
+        if (animating) {
+          pending = next;
+          return;
+        }
+        animating = true;
+        active = next;
+        if (active) link.classList.add('hover-active');
+        else link.classList.remove('hover-active');
+
+        setTimeout(() => {
+          animating = false;
+          if (pending !== null && pending !== active) {
+            const nextReq = pending;
+            pending = null;
+            requestActive(nextReq);
+          } else {
+            pending = null;
+          }
+        }, 300);
+      }
+
+      link.addEventListener('mouseenter', () => requestActive(true));
+      link.addEventListener('mouseleave', () => requestActive(false));
+      link.addEventListener('focus', () => requestActive(true));
+      link.addEventListener('blur', () => requestActive(false));
+
       link.addEventListener('click', () => {
         toggle.classList.remove('active');
         links.classList.remove('open');
