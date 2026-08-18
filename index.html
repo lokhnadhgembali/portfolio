@@ -9,13 +9,13 @@
     content="Gembali Lokhnadh - Computer Science Student, Data Analyst, ML Enthusiast & Web Developer. Explore my portfolio showcasing real-world projects, internship experience, and technical skills.">
   <title>Gembali Lokhnadh | Portfolio</title>
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
-  <link rel="stylesheet" href="css/style.css?v=3.0">
+  <link rel="stylesheet" href="css/style.css?v=4.0">
 </head>
 
 <body>
   <div class="page-content">
 
-    <!-- ===== HERO ===== -->
+    <!-- ==================== 1. HERO ==================== -->
     <section class="hero" id="hero">
       <div id="particles" style="position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:0;"></div>
       <div class="container">
@@ -33,22 +33,22 @@
               Computer Science undergraduate with hands-on internship experience in AI/ML, data analytics, and full-stack development. Passionate about building intelligent solutions and uncovering insights through data.
             </p>
             <div class="hero-buttons">
-              <a href="projects.html" class="btn btn-primary">
+              <a href="#projects" class="btn btn-primary">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
                 View My Work
               </a>
-              <a href="contact.html" class="btn btn-secondary">
+              <a href="#contact" class="btn btn-secondary">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                 Contact Me
               </a>
             </div>
             <div class="hero-stats">
               <div class="hero-stat">
-                <div class="hero-stat-number" data-count="5" data-suffix="+">0</div>
+                <div class="hero-stat-number" data-count="6" data-suffix="+">0</div>
                 <div class="hero-stat-label">Projects</div>
               </div>
               <div class="hero-stat">
-                <div class="hero-stat-number" data-count="5" data-suffix="+">0</div>
+                <div class="hero-stat-number" data-count="8" data-suffix="+">0</div>
                 <div class="hero-stat-label">Certifications</div>
               </div>
               <div class="hero-stat">
@@ -77,51 +77,439 @@
       </div>
     </section>
 
-    <!-- ===== QUICK HIGHLIGHTS ===== -->
-    <section style="padding: 60px 0 80px;">
+    <!-- ==================== 2. ABOUT ==================== -->
+    <section id="about" style="padding: 80px 0;">
       <div class="container">
-        <div class="grid-4 fade-in">
-          <div class="card" style="text-align:center;">
-            <div style="font-size:2.5rem;margin-bottom:12px;">🎯</div>
-            <h3 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;color:var(--text-primary);">Data Analytics</h3>
-            <p style="font-size:0.85rem;color:var(--text-secondary);">Transforming raw data into actionable insights using Power BI, Pandas &amp; SQL</p>
+        <div class="section-header fade-in">
+          <span class="section-label">About Me</span>
+          <h2 class="section-title">Get To Know Me</h2>
+          <p class="section-subtitle">A glimpse into who I am, what drives me, and the journey that shapes my career.</p>
+        </div>
+
+        <div style="max-width:900px;margin:0 auto;">
+          <div style="display:flex;gap:48px;align-items:flex-start;margin-bottom:48px;flex-wrap:wrap;">
+            <div style="flex-shrink:0;display:flex;justify-content:center;">
+              <div style="position:relative;width:240px;height:240px;border-radius:50%;overflow:hidden;border:4px solid rgba(249,115,22,0.3);box-shadow:0 0 40px rgba(249,115,22,0.2);flex-shrink:0;">
+                <img src="assets/profile.png" alt="Gembali Lokhnadh"
+                  onerror="this.style.display='none';this.nextElementSibling.style.display='flex';"
+                  style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+                <div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;background:linear-gradient(135deg,rgba(249,115,22,0.2),rgba(251,146,60,0.1));font-size:5rem;font-family:var(--font-heading);font-weight:800;color:var(--accent);">
+                  GL
+                </div>
+              </div>
+            </div>
+
+            <div class="about-text fade-in" style="flex:1;min-width:260px;">
+              <h3>Aspiring Data Scientist &amp; Software Engineer</h3>
+              <p>
+                I'm <strong>Gembali Lokhnadh</strong>, a Computer Science &amp; Engineering undergraduate at
+                <strong>Lovely Professional University</strong>, driven by a commitment to leveraging data
+                and technology to solve real-world challenges.
+              </p>
+              <p>
+                I bring hands-on proficiency in <strong>Data Analytics</strong>, <strong>Machine
+                  Learning</strong>, and <strong>Full-Stack Development</strong>, backed by a virtual internship at
+                <strong>Infosys Springboard</strong> where I built an AI-powered fraud detection platform achieving
+                97.2% accuracy. My project portfolio includes end-to-end ML pipelines, Power BI dashboards, and responsive web applications.
+              </p>
+              <p>
+                I am currently strengthening expertise in <strong>Machine Learning</strong> and
+                <strong>Data Structures &amp; Algorithms</strong>, and actively seeking internship
+                and entry-level opportunities to contribute to data-driven innovation.
+              </p>
+              <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:20px;">
+                <a href="#contact" class="btn btn-primary">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  Let's Connect
+                </a>
+                <a href="#projects" class="btn btn-secondary">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                  View Projects
+                </a>
+              </div>
+            </div>
           </div>
-          <div class="card" style="text-align:center;">
-            <div style="font-size:2.5rem;margin-bottom:12px;">🧠</div>
-            <h3 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;color:var(--text-primary);">Machine Learning</h3>
-            <p style="font-size:0.85rem;color:var(--text-secondary);">Building predictive models and intelligent systems with Python &amp; scikit-learn</p>
+
+          <!-- Details Grid -->
+          <div class="about-details-grid fade-in">
+            <div class="about-detail-item">
+              <div class="detail-label">Name</div>
+              <div class="detail-value">Gembali Lokhnadh</div>
+            </div>
+            <div class="about-detail-item">
+              <div class="detail-label">Degree</div>
+              <div class="detail-value">B.Tech CSE</div>
+            </div>
+            <div class="about-detail-item">
+              <div class="detail-label">University</div>
+              <div class="detail-value">Lovely Professional University</div>
+            </div>
+            <div class="about-detail-item">
+              <div class="detail-label">CGPA</div>
+              <div class="detail-value" style="color:var(--accent);">7.41</div>
+            </div>
+            <div class="about-detail-item">
+              <div class="detail-label">Location</div>
+              <div class="detail-value">India</div>
+            </div>
+            <div class="about-detail-item">
+              <div class="detail-label">Status</div>
+              <div class="detail-value" style="color:var(--accent-green);">Open to Work ✓</div>
+            </div>
           </div>
-          <div class="card" style="text-align:center;">
-            <div style="font-size:2.5rem;margin-bottom:12px;">🔧</div>
-            <h3 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;color:var(--text-primary);">Full-Stack Dev</h3>
-            <p style="font-size:0.85rem;color:var(--text-secondary);">Building responsive web apps and APIs using Flask, Next.js &amp; React</p>
-          </div>
-          <div class="card" style="text-align:center;">
-            <div style="font-size:2.5rem;margin-bottom:12px;">💬</div>
-            <h3 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;color:var(--text-primary);">DSA &amp; CP</h3>
-            <p style="font-size:0.85rem;color:var(--text-secondary);">Mastering Data Structures &amp; Algorithms with 100+ LeetCode problems solved</p>
+        </div>
+
+        <!-- Passion & Interests -->
+        <div style="margin-top: 48px;">
+          <div class="grid-3 fade-in">
+            <div class="card" style="text-align:center;">
+              <div style="font-size:2.5rem;margin-bottom:16px;">📈</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;">Data Storytelling</h3>
+              <p style="font-size:0.9rem;color:var(--text-secondary);">I believe every dataset has a story to tell. I love uncovering patterns and presenting them in visually compelling ways.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <div style="font-size:2.5rem;margin-bottom:16px;">🧪</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;">Research &amp; Innovation</h3>
+              <p style="font-size:0.9rem;color:var(--text-secondary);">Fascinated by cutting-edge ML techniques and constantly exploring new approaches to solve complex problems.</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <div style="font-size:2.5rem;margin-bottom:16px;">🚀</div>
+              <h3 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;">Continuous Learning</h3>
+              <p style="font-size:0.9rem;color:var(--text-secondary);">Technology evolves rapidly, and I'm committed to growing alongside it through courses, certifications, and hands-on projects.</p>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== EXPERIENCE / INTERNSHIP ===== -->
-    <section style="padding: 80px 0;">
+    <!-- ==================== 3. SKILLS ==================== -->
+    <section id="skills" style="padding: 80px 0;">
       <div class="container">
         <div class="section-header fade-in">
-          <span class="section-label">Experience</span>
-          <h2 class="section-title">Internship &amp; Training</h2>
-          <p class="section-subtitle">Real-world experience building production-grade systems and analysing business data.</p>
+          <span class="section-label">Skills</span>
+          <h2 class="section-title">My Technical Arsenal</h2>
+          <p class="section-subtitle">A comprehensive overview of the technologies, tools, and frameworks I work with.</p>
+        </div>
+
+        <!-- Languages -->
+        <div class="skill-category fade-in">
+          <h3 class="skill-category-title">
+            <span class="skill-category-icon">💻</span> Programming Languages
+          </h3>
+          <p class="skill-category-desc">Core languages I use for software development, data manipulation, and algorithms</p>
+          <div class="grid-2" style="gap:20px;">
+            <div class="card" style="padding:24px;">
+              <div class="progress-container">
+                <div class="progress-header">
+                  <span class="progress-label">🚀 C++</span>
+                  <span class="progress-value">85%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="85"></div>
+                </div>
+              </div>
+            </div>
+            <div class="card" style="padding:24px;">
+              <div class="progress-container">
+                <div class="progress-header">
+                  <span class="progress-label">🐍 Python</span>
+                  <span class="progress-value">90%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" data-width="90"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Frameworks & Libraries -->
+        <div class="skill-category fade-in">
+          <h3 class="skill-category-title">
+            <span class="skill-category-icon">📦</span> Frameworks &amp; Libraries
+          </h3>
+          <p class="skill-category-desc">Frameworks and libraries I use for web development, data analysis, and machine learning</p>
+          <div class="skills-tags-grid">
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent);"></span> HTML</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:#8b5cf6;"></span> CSS</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent-green);"></span> NumPy</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent);"></span> Pandas</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:#ec4899;"></span> Matplotlib</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent-light);"></span> Seaborn</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:#8b5cf6;"></span> Scikit-learn</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent-green);"></span> TensorFlow</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent);"></span> Next.js</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:#ec4899;"></span> React</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent-green);"></span> Flask</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent);"></span> Tailwind CSS</div>
+          </div>
+        </div>
+
+        <!-- Tools / Platforms -->
+        <div class="skill-category fade-in">
+          <h3 class="skill-category-title">
+            <span class="skill-category-icon">🛠️</span> Tools &amp; Databases
+          </h3>
+          <p class="skill-category-desc">Tools and databases I use for data management, version control, and development</p>
+          <div class="skills-tags-grid">
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent);"></span> MySQL</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent-green);"></span> Microsoft Excel</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent);"></span> Power BI</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:#8b5cf6;"></span> Git</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:#ec4899;"></span> GitHub</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent);"></span> VS Code</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent-green);"></span> Jupyter Notebook</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:#8b5cf6;"></span> SQLAlchemy</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:#8b5cf6;"></span> SQLite</div>
+            <div class="skill-tag-item"><span class="skill-dot" style="background:var(--accent);"></span> FastAPI</div>
+          </div>
+        </div>
+
+        <!-- Core CS Concepts -->
+        <div class="skill-category fade-in">
+          <h3 class="skill-category-title">
+            <span class="skill-category-icon">🧠</span> Core CS Fundamentals
+          </h3>
+          <div class="grid-3">
+            <div class="card" style="text-align:center;">
+              <div style="font-size:2rem;margin-bottom:12px;">🧩</div>
+              <h4 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;">DSA</h4>
+              <p style="font-size:0.85rem;color:var(--text-secondary);">Arrays, Linked Lists, Trees, Graphs, Dynamic Programming, Sorting &amp; Searching</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <div style="font-size:2rem;margin-bottom:12px;">🌐</div>
+              <h4 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;">Computer Networks</h4>
+              <p style="font-size:0.85rem;color:var(--text-secondary);">TCP/IP, OSI Model, HTTP, DNS, Network Security &amp; Protocols</p>
+            </div>
+            <div class="card" style="text-align:center;">
+              <div style="font-size:2rem;margin-bottom:12px;">⚙️</div>
+              <h4 style="font-family:var(--font-heading);font-size:1.1rem;margin-bottom:8px;">Operating Systems</h4>
+              <p style="font-size:0.85rem;color:var(--text-secondary);">Process Management, Memory Management, File Systems, Scheduling Algorithms</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. PROJECTS ==================== -->
+    <section id="projects" style="padding: 80px 0;">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Projects</span>
+          <h2 class="section-title">Featured Work</h2>
+          <p class="section-subtitle">A showcase of key projects demonstrating real-world problem solving across AI, data analytics, and web development.</p>
+        </div>
+
+        <div class="filter-buttons fade-in">
+          <button class="filter-btn active" data-filter="all">All Projects</button>
+          <button class="filter-btn" data-filter="ml">Machine Learning</button>
+          <button class="filter-btn" data-filter="data">Data Analysis</button>
+          <button class="filter-btn" data-filter="web">Web / Full-Stack</button>
+        </div>
+
+        <div class="grid-2">
+
+          <!-- Project 1: Fake Job Detector -->
+          <div class="project-card fade-in" data-category="web">
+            <div class="project-card-image"
+              style="background:linear-gradient(135deg,rgba(249,115,22,0.2),rgba(234,88,12,0.1));">
+              <div style="text-align:center;">
+                <div class="project-icon">🛡️</div>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">AI · Full-Stack · Internship</p>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">AI-Powered Fake Job Detector</h3>
+              <p class="project-card-desc">
+                Built during Infosys Springboard internship. Architected an AI-powered fake job detection platform using Python, FastAPI, and SQLite, achieving 97.2% classification accuracy on 18K+ job postings. Features JWT authentication and a Next.js admin dashboard.
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">Python</span>
+                <span class="tag tag-purple">FastAPI</span>
+                <span class="tag tag-green">SQLite</span>
+                <span class="tag tag-orange">Tailwind CSS</span>
+                <span class="tag tag-pink">Next.js</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/lokhnadhgembali/Fake_Job_Detection" target="_blank" class="btn btn-secondary"
+                  style="padding:8px 16px;font-size:0.85rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: Music Genre Classification -->
+          <div class="project-card fade-in delay-1" data-category="ml">
+            <div class="project-card-image"
+              style="background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(109,40,217,0.1));">
+              <div style="text-align:center;">
+                <div class="project-icon">🎵</div>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">ML · Classification</p>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">Music Genre Classification</h3>
+              <p class="project-card-desc">
+                Built a multiclass music genre classification system using Random Forest and XGBoost trained on 40K+ music tracks. Processed raw audio metadata through feature engineering and scaling. Achieved 89% classification accuracy using XGBoost with cross-validation.
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">Python</span>
+                <span class="tag tag-purple">Random Forest</span>
+                <span class="tag tag-green">XGBoost</span>
+                <span class="tag tag-orange">Scikit-learn</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/lokhnadhgembali/Music-Genre-Classification" target="_blank" class="btn btn-secondary"
+                  style="padding:8px 16px;font-size:0.85rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Airline Service Quality -->
+          <div class="project-card fade-in delay-2" data-category="data">
+            <div class="project-card-image"
+              style="background:linear-gradient(135deg,rgba(249,115,22,0.15),rgba(234,88,12,0.15));">
+              <div style="text-align:center;">
+                <div class="project-icon">✈️</div>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">Power BI · Dashboard</p>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">Airline Service Quality Analysis Dashboard</h3>
+              <p class="project-card-desc">
+                Created an interactive Power BI dashboard analyzing 10K+ passenger records to evaluate service gaps and customer satisfaction trends across airline operations. Enhanced data accuracy by 7% through data cleaning and designed 10+ KPI cards, slicers, and trend visualizations.
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">Power BI</span>
+                <span class="tag tag-green">Excel</span>
+                <span class="tag tag-orange">KPI Analysis</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/lokhnadhgembali/Airline-Service-Quality-analysis-Dashboard"
+                  target="_blank" class="btn btn-secondary" style="padding:8px 16px;font-size:0.85rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Avocado Ripeness Analysis -->
+          <div class="project-card fade-in delay-3" data-category="ml">
+            <div class="project-card-image"
+              style="background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(5,150,105,0.1));">
+              <div style="text-align:center;">
+                <div class="project-icon">🥑</div>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">Image Processing · CV</p>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">Avocado Ripeness Analysis</h3>
+              <p class="project-card-desc">
+                Innovative project combining image processing and data analysis to classify avocado ripeness stages. Achieved 95% prediction accuracy on 500+ samples using Computer Vision techniques — key deliverable during LPU Data Science training.
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">Python</span>
+                <span class="tag tag-purple">OpenCV</span>
+                <span class="tag tag-green">Image Processing</span>
+                <span class="tag tag-orange">ML</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/lokhnadhgembali/Avacado-Ripeness-Analysis" target="_blank"
+                  class="btn btn-secondary" style="padding:8px 16px;font-size:0.85rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: AI Food Waste Tracker -->
+          <div class="project-card fade-in delay-4" data-category="web">
+            <div class="project-card-image"
+              style="background:linear-gradient(135deg,rgba(16,185,129,0.12),rgba(249,115,22,0.12));">
+              <div style="text-align:center;">
+                <div class="project-icon">🍽️</div>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">AI · Web · Chatbot</p>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">AI-Powered Food Waste Tracker</h3>
+              <p class="project-card-desc">
+                Engineered an AI-powered system to evaluate consumption habits and provide real-time insights to minimize food waste. Features interactive dashboards highlighting usage trends and an intelligent chatbot for user engagement. Achieved 85% prediction accuracy.
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">HTML</span>
+                <span class="tag tag-purple">CSS</span>
+                <span class="tag tag-green">JavaScript</span>
+                <span class="tag tag-orange">AI</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/lokhnadhgembali/Food-Waste-Tracker-AI-Powered-Chat-Bot" target="_blank"
+                  class="btn btn-secondary" style="padding:8px 16px;font-size:0.85rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: Student Performance -->
+          <div class="project-card fade-in delay-5" data-category="data">
+            <div class="project-card-image"
+              style="background:linear-gradient(135deg,rgba(251,146,60,0.15),rgba(16,185,129,0.1));">
+              <div style="text-align:center;">
+                <div class="project-icon">📚</div>
+                <p style="font-size:0.8rem;color:var(--text-muted);margin-top:8px;">Data Analysis · EDA</p>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <h3 class="project-card-title">Student Performance Analysis</h3>
+              <p class="project-card-desc">
+                Data-driven approach analyzing 650 student records across 12 academic and behavioral attributes. Used advanced EDA techniques achieving 90% model accuracy in performance prediction with insightful visualizations for educational improvement.
+              </p>
+              <div class="project-card-tags">
+                <span class="tag">Python</span>
+                <span class="tag tag-purple">Pandas</span>
+                <span class="tag tag-green">NumPy</span>
+                <span class="tag tag-orange">Matplotlib</span>
+                <span class="tag tag-pink">Seaborn</span>
+              </div>
+              <div class="project-card-links">
+                <a href="https://github.com/lokhnadhgembali/Student-performance" target="_blank"
+                  class="btn btn-secondary" style="padding:8px 16px;font-size:0.85rem;">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                  GitHub
+                </a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. EDUCATION & EXPERIENCE ==================== -->
+    <section id="education" style="padding: 80px 0;">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Education</span>
+          <h2 class="section-title">Academic Journey &amp; Experience</h2>
+          <p class="section-subtitle">My educational path and real-world internship training that shaped my technical skills.</p>
         </div>
 
         <div class="exp-timeline">
-
-          <!-- Infosys Internship -->
-          <div class="exp-item">
+          <!-- Experience: Infosys Springboard -->
+          <div class="exp-item fade-in">
             <div class="exp-dot">💼</div>
             <div class="exp-card">
               <div class="exp-header">
-                <span class="exp-role">Virtual Internship — AI &amp; Full-Stack</span>
+                <span class="exp-role">Artificial Intelligence Virtual Intern</span>
                 <span class="exp-company">Infosys Springboard</span>
                 <span class="exp-period">Feb 2026 – Apr 2026</span>
               </div>
@@ -141,82 +529,494 @@
             </div>
           </div>
 
-          <!-- LPU Training -->
-          <div class="exp-item">
+          <!-- Education: LPU -->
+          <div class="exp-item fade-in delay-1">
             <div class="exp-dot">🎓</div>
             <div class="exp-card">
               <div class="exp-header">
-                <span class="exp-role">Hands-On Data Science Training</span>
+                <span class="exp-role">B.Tech in Computer Science &amp; Engineering</span>
                 <span class="exp-company">Lovely Professional University</span>
-                <span class="exp-period">Jun 2025 – Jul 2025</span>
+                <span class="exp-period">Aug 2022 – Jun 2026</span>
               </div>
-              <ul class="exp-bullets">
-                <li>Attended an immersive summer training in Data Science, gaining hands-on experience in end-to-end data handling, analysis, and visualization workflows.</li>
-                <li>Developed proficiency in MySQL, Excel, Power BI, and Python through real-world data analysis projects.</li>
-                <li>Delivered an Avocado Ripeness Analysis project achieving <strong>95% prediction accuracy</strong> on 500+ samples.</li>
-                <li>Applied EDA, visualization, and dashboarding techniques to generate actionable business insights.</li>
-              </ul>
+              <p class="exp-desc">
+                Focusing on Data Science, Machine Learning, and Full-Stack Web Development. Maintaining a strong academic performance with a <strong>CGPA of 7.41</strong>.
+              </p>
               <div class="exp-tech">
-                <span class="tag">Python</span>
-                <span class="tag tag-green">SQL</span>
-                <span class="tag tag-orange">Power BI</span>
-                <span class="tag tag-purple">Excel</span>
-                <span class="tag tag-pink">OpenCV</span>
+                <span class="tag">CGPA: 7.41</span>
+                <span class="tag tag-purple">Data Structures</span>
+                <span class="tag tag-green">Machine Learning</span>
+                <span class="tag tag-orange">DBMS</span>
               </div>
             </div>
           </div>
 
-          <!-- GirlScript -->
-          <div class="exp-item">
-            <div class="exp-dot">🌟</div>
+          <!-- Education: Intermediate -->
+          <div class="exp-item fade-in delay-2">
+            <div class="exp-dot">📚</div>
             <div class="exp-card">
               <div class="exp-header">
-                <span class="exp-role">Open Source Contributor</span>
-                <span class="exp-company">GirlScript Summer of Code 2026</span>
-                <span class="exp-period">May 2026 – Present</span>
+                <span class="exp-role">Intermediate (Class XII) - MPC</span>
+                <span class="exp-company">Sri Chaitanya Junior College</span>
+                <span class="exp-period">Jun 2020 – Mar 2022</span>
               </div>
-              <ul class="exp-bullets">
-                <li>Engaged as an active contributor to real-world open-source development workflows on GitHub.</li>
-                <li>Collaborated with maintainers, submitted pull requests, and resolved issues across projects.</li>
-                <li>Strengthened collaboration, version control, and technical communication skills through community-driven development.</li>
-              </ul>
+              <p class="exp-desc">
+                Completed higher secondary education in Mathematics, Physics, and Chemistry (MPC) with an aggregate score of <strong>76.3%</strong>.
+              </p>
               <div class="exp-tech">
-                <span class="tag">Git</span>
-                <span class="tag tag-purple">GitHub</span>
-                <span class="tag tag-green">Open Source</span>
+                <span class="tag">76.3%</span>
+                <span class="tag tag-purple">Mathematics</span>
+                <span class="tag tag-green">Physics</span>
               </div>
             </div>
           </div>
+        </div>
 
+        <!-- Academic Milestones -->
+        <div style="margin-top: 60px;">
+          <div class="achievement-grid">
+            <div class="achievement-card fade-in">
+              <span class="achievement-icon">💻</span>
+              <div class="achievement-title">LeetCode Solved</div>
+              <div class="achievement-desc">Solved 100+ problems across various difficulty levels, sharpening algorithmic thinking and problem-solving skills.</div>
+              <span class="achievement-badge">Active</span>
+            </div>
+            <div class="achievement-card fade-in delay-1">
+              <span class="achievement-icon">🛡️</span>
+              <div class="achievement-title">Infosys Springboard AI Intern</div>
+              <div class="achievement-desc">Built production-ready Fake Job Detection platform with 97.2% accuracy during virtual internship.</div>
+              <span class="achievement-badge">Feb 2025</span>
+            </div>
+            <div class="achievement-card fade-in delay-2">
+              <span class="achievement-icon">🎓</span>
+              <div class="achievement-title">B.Tech CSE - LPU</div>
+              <div class="achievement-desc">Maintained a solid 7.41 CGPA across coursework in Data Science, Machine Learning, and Software Engineering.</div>
+              <span class="achievement-badge">May 2026</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ===== ACHIEVEMENTS ===== -->
-    <section style="padding: 60px 0 100px;">
+    <!-- ==================== 6. CERTIFICATIONS ==================== -->
+    <section id="certifications" style="padding: 80px 0;">
       <div class="container">
         <div class="section-header fade-in">
-          <span class="section-label">Achievements</span>
-          <h2 class="section-title">Milestones &amp; Recognition</h2>
+          <span class="section-label">Certifications</span>
+          <h2 class="section-title">Professional Credentials</h2>
+          <p class="section-subtitle">Industry-recognized certifications that validate my skills and commitment to continuous learning.</p>
         </div>
-        <div class="achievement-grid">
-          <div class="achievement-card fade-in">
-            <span class="achievement-icon">💻</span>
-            <div class="achievement-title">LeetCode Champion</div>
-            <div class="achievement-desc">Solved 100+ problems across various difficulty levels, sharpening algorithmic thinking and problem-solving skills.</div>
-            <span class="achievement-badge">Apr 2026</span>
+
+        <div class="grid-2">
+
+          <!-- Certification 1: SQL - HackerRank -->
+          <div class="cert-card fade-in" style="margin-bottom: 24px;flex-direction:column;">
+            <div class="cert-icon" style="background:rgba(249,115,22,0.1);border-color:rgba(249,115,22,0.2);">
+              🗄️
+            </div>
+            <div class="cert-info" style="flex:1;">
+              <h3>SQL</h3>
+              <p class="cert-org">HackerRank</p>
+              <p class="cert-date">Jul 2026</p>
+              <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">
+                HackerRank certification validating SQL query construction, relational database management, data filtering, joins, and aggregations.
+              </p>
+              <div style="display:flex;flex-wrap:gap:8px;margin-bottom:16px;">
+                <span class="tag">SQL</span>
+                <span class="tag tag-purple">MySQL</span>
+                <span class="tag tag-green">Database</span>
+              </div>
+              <a href="https://www.hackerrank.com/certificates/23758fa897d9" target="_blank"
+                style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-md);width:fit-content;text-decoration:none;">
+                <span style="color:var(--accent-green);font-size:1.1rem;">✓</span>
+                <span style="font-size:0.85rem;color:var(--accent-green);font-weight:500;">Verified Credential</span>
+              </a>
+            </div>
           </div>
-          <div class="achievement-card fade-in delay-1">
-            <span class="achievement-icon">⭐</span>
-            <div class="achievement-title">HackerRank 5-Star C++</div>
-            <div class="achievement-desc">Earned a 5-star rating in C++ on HackerRank, demonstrating advanced proficiency in systems-level programming.</div>
-            <span class="achievement-badge">Feb 2026</span>
+
+          <!-- Certification 2: Python for Data Science - IBM -->
+          <div class="cert-card fade-in" style="margin-bottom: 24px;flex-direction:column;">
+            <div class="cert-icon" style="background:rgba(249,115,22,0.1);border-color:rgba(249,115,22,0.2);">
+              🐍
+            </div>
+            <div class="cert-info" style="flex:1;">
+              <h3>Python for Data Science</h3>
+              <p class="cert-org">IBM</p>
+              <p class="cert-date">Apr 2026</p>
+              <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">
+                IBM-certified course covering Python programming for data science including Pandas, NumPy, data visualization, and exploratory data analysis.
+              </p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+                <span class="tag">Python</span>
+                <span class="tag tag-purple">Pandas</span>
+                <span class="tag tag-green">NumPy</span>
+              </div>
+              <a href="https://courses.skillsbuild.skillsnetwork.site/certificates/a50a1c588bb14f118717493e5663d4f4" target="_blank"
+                style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-md);width:fit-content;text-decoration:none;">
+                <span style="color:var(--accent-green);font-size:1.1rem;">✓</span>
+                <span style="font-size:0.85rem;color:var(--accent-green);font-weight:500;">Verified Credential</span>
+              </a>
+            </div>
           </div>
-          <div class="achievement-card fade-in delay-2">
-            <span class="achievement-icon">🌱</span>
-            <div class="achievement-title">GirlScript Contributor</div>
-            <div class="achievement-desc">Participated as an open-source contributor at GirlScript Summer of Code 2026, contributing to real-world projects.</div>
-            <span class="achievement-badge">May 2026</span>
+
+          <!-- Certification 3: Oracle OCI AI Foundations -->
+          <div class="cert-card fade-in delay-1" style="margin-bottom: 24px;flex-direction:column;">
+            <div class="cert-icon" style="background:rgba(251,146,60,0.1);border-color:rgba(251,146,60,0.2);">
+              ☁️
+            </div>
+            <div class="cert-info" style="flex:1;">
+              <h3>OCI 2025 AI Foundations Associate</h3>
+              <p class="cert-org">Oracle</p>
+              <p class="cert-date">Mar 2026</p>
+              <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">
+                Industry certification validating Oracle Cloud Infrastructure, AI/ML services, and generative AI fundamentals.
+              </p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+                <span class="tag">Cloud</span>
+                <span class="tag tag-purple">AI/ML</span>
+                <span class="tag tag-green">Oracle OCI</span>
+              </div>
+              <a href="https://drive.google.com/file/d/12xbgXJJiT0uINnYi9Reuke7De0dBFbTN/view" target="_blank"
+                style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-md);width:fit-content;text-decoration:none;">
+                <span style="color:var(--accent-green);font-size:1.1rem;">✓</span>
+                <span style="font-size:0.85rem;color:var(--accent-green);font-weight:500;">Verified Credential</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Certification 4: Cisco Data Analytics Essentials -->
+          <div class="cert-card fade-in delay-1" style="margin-bottom: 24px;flex-direction:column;">
+            <div class="cert-icon" style="background:rgba(249,115,22,0.1);border-color:rgba(249,115,22,0.2);">
+              📊
+            </div>
+            <div class="cert-info" style="flex:1;">
+              <h3>Data Analytics Essentials</h3>
+              <p class="cert-org">Cisco Networking Academy</p>
+              <p style="font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin-bottom:16px;">
+                Foundational certification in data analytics covering data collection, analysis, visualization, and transformation into business insights.
+              </p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+                <span class="tag">Data Analytics</span>
+                <span class="tag tag-purple">Visualization</span>
+                <span class="tag tag-green">Business Insights</span>
+              </div>
+              <a href="https://drive.google.com/file/d/1iYxv5vl7ga8E_oMDg9j99za4rQK1Vwua/view" target="_blank"
+                style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.2);border-radius:var(--radius-md);width:fit-content;text-decoration:none;">
+                <span style="color:var(--accent-green);font-size:1.1rem;">✓</span>
+                <span style="font-size:0.85rem;color:var(--accent-green);font-weight:500;">Verified Credential</span>
+              </a>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Learning Path -->
+        <div style="margin-top: 60px;">
+          <div class="section-header fade-in">
+            <span class="section-label">Currently Learning</span>
+            <h3 class="section-title">What's Next</h3>
+          </div>
+          <div class="grid-3 fade-in">
+            <div class="card" style="text-align:center;border: 1px dashed var(--bg-glass-border);">
+              <div style="font-size:2.5rem;margin-bottom:12px;">🧠</div>
+              <h4 style="font-family:var(--font-heading);font-size:1rem;margin-bottom:8px;">Advanced ML</h4>
+              <p style="font-size:0.85rem;color:var(--text-secondary);">Deep diving into neural networks, transformer architectures, and advanced NLP.</p>
+            </div>
+            <div class="card" style="text-align:center;border: 1px dashed var(--bg-glass-border);">
+              <div style="font-size:2.5rem;margin-bottom:12px;">☁️</div>
+              <h4 style="font-family:var(--font-heading);font-size:1rem;margin-bottom:8px;">Cloud Engineering</h4>
+              <p style="font-size:0.85rem;color:var(--text-secondary);">Exploring AWS/GCP cloud services, Docker containers, and CI/CD pipelines.</p>
+            </div>
+            <div class="card" style="text-align:center;border: 1px dashed var(--bg-glass-border);">
+              <div style="font-size:2.5rem;margin-bottom:12px;">⚡</div>
+              <h4 style="font-family:var(--font-heading);font-size:1rem;margin-bottom:8px;">System Design</h4>
+              <p style="font-size:0.85rem;color:var(--text-secondary);">Studying high-availability distributed systems, caching, and scalable architecture.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 7. RESUME ==================== -->
+    <section id="resume" style="padding: 80px 0;">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Resume</span>
+          <h2 class="section-title">My Resume</h2>
+          <p class="section-subtitle">Explore each section using the interactive tabs below, or download the full PDF.</p>
+        </div>
+
+        <div class="resume-outer">
+          <!-- Resume Header Card -->
+          <div class="resume-header-card fade-in">
+            <div class="rh-name">Gembali Lokhnadh</div>
+            <div class="rh-contacts">
+              <div class="rh-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <a href="mailto:lokhnadhgembali@gmail.com">lokhnadhgembali@gmail.com</a>
+              </div>
+              <div class="rh-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 11.25 19a19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-2.92-8.72A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                <span>+91 6305551901</span>
+              </div>
+              <div class="rh-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                <a href="https://www.linkedin.com/in/lokhnadh/" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+              <div class="rh-contact-item">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                <a href="https://github.com/lokhnadhgembali" target="_blank" rel="noopener">GitHub</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Download Button -->
+          <div class="download-section fade-in">
+            <a class="btn-download" href="Lokhnadh_CV.pdf" download="Gembali_Lokhnadh_CV.pdf">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download Latest CV (PDF)
+            </a>
+          </div>
+
+          <!-- Tabs Navigation -->
+          <div class="resume-tabs-nav fade-in">
+            <button class="rtab-btn active" data-tab="experience">Internship</button>
+            <button class="rtab-btn" data-tab="skills">Skills</button>
+            <button class="rtab-btn" data-tab="education">Education</button>
+            <button class="rtab-btn" data-tab="achievements">Achievements</button>
+          </div>
+
+          <!-- Tab: Experience -->
+          <div class="resume-tab-panel active" id="tab-experience">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Internship &amp; Experience</div>
+              <div class="rs-item">
+                <div class="rs-item-top">
+                  <div>
+                    <div class="rs-item-role">Artificial Intelligence Virtual Intern</div>
+                    <div class="rs-item-org">Infosys Springboard · Remote, India</div>
+                  </div>
+                  <span class="rs-item-date">Dec 2024 – Feb 2025</span>
+                </div>
+                <ul class="rs-bullets">
+                  <li>Engineered an AI-driven Fake Job Detection system classifying 18K+ postings with <strong>97.2% accuracy</strong>.</li>
+                  <li>Architected REST APIs with FastAPI and JWT authentication for secure operations.</li>
+                  <li>Designed full-stack dashboards with Next.js and Tailwind CSS for real-time risk analytics.</li>
+                </ul>
+                <div class="rs-techstack">
+                  <span class="rs-tag">Python</span>
+                  <span class="rs-tag rs-tag-purple">FastAPI</span>
+                  <span class="rs-tag rs-tag-green">SQLite</span>
+                  <span class="rs-tag">Next.js</span>
+                  <span class="rs-tag rs-tag-purple">AI/ML</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab: Skills -->
+          <div class="resume-tab-panel" id="tab-skills">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Technical Skills Summary</div>
+              <div class="rs-skill-group">
+                <div class="rs-skill-group-title"><span class="dot"></span> Languages</div>
+                <div class="rs-tag-row">
+                  <span class="rs-tag rs-tag-purple">C++</span>
+                  <span class="rs-tag">Python</span>
+                  <span class="rs-tag rs-tag-green">SQL</span>
+                </div>
+              </div>
+              <div class="rs-skill-group" style="margin-top:16px;">
+                <div class="rs-skill-group-title"><span class="dot"></span> Frameworks &amp; Tools</div>
+                <div class="rs-tag-row">
+                  <span class="rs-tag">Pandas</span>
+                  <span class="rs-tag rs-tag-purple">NumPy</span>
+                  <span class="rs-tag rs-tag-green">Scikit-learn</span>
+                  <span class="rs-tag">FastAPI</span>
+                  <span class="rs-tag rs-tag-purple">Flask</span>
+                  <span class="rs-tag">Next.js</span>
+                  <span class="rs-tag rs-tag-green">Power BI</span>
+                  <span class="rs-tag">Git / GitHub</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab: Education -->
+          <div class="resume-tab-panel" id="tab-education">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Education</div>
+              <div class="rs-item">
+                <div class="rs-item-top">
+                  <div>
+                    <div class="rs-item-role">B.Tech in Computer Science &amp; Engineering</div>
+                    <div class="rs-item-org">Lovely Professional University · Phagwara, Punjab</div>
+                  </div>
+                  <span class="rs-item-date">Aug 2022 – Jun 2026</span>
+                </div>
+                <p style="font-size:0.87rem;color:var(--text-secondary);margin-top:6px;">Current CGPA: <strong style="color:var(--accent);">7.41</strong></p>
+              </div>
+              <div class="rs-item">
+                <div class="rs-item-top">
+                  <div>
+                    <div class="rs-item-role">Intermediate (Class XII) - MPC</div>
+                    <div class="rs-item-org">Sri Chaitanya Junior College · Visakhapatnam, AP</div>
+                  </div>
+                  <span class="rs-item-date">2020 – 2022</span>
+                </div>
+                <p style="font-size:0.87rem;color:var(--text-secondary);margin-top:6px;">Aggregate: <strong>76.3%</strong></p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab: Achievements -->
+          <div class="resume-tab-panel" id="tab-achievements">
+            <div class="rs-card fade-in">
+              <div class="rs-section-label">Achievements &amp; Honors</div>
+              <ul class="rs-bullets">
+                <li><strong>LeetCode Solved:</strong> Solved 100+ algorithmic problems across dynamic programming, trees, and graphs.</li>
+                <li><strong>Infosys Springboard Virtual Internship:</strong> Awarded internship completion certificate for high-accuracy AI fraud detection platform.</li>
+                <li><strong>Oracle Certified:</strong> OCI 2025 AI Foundations Associate industry credential.</li>
+                <li><strong>HackerRank Certified:</strong> SQL certification validating complex query optimization and relational schema management.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 8. CONTACT ==================== -->
+    <section id="contact" style="padding: 80px 0 100px;">
+      <div class="container">
+        <div class="section-header fade-in">
+          <span class="section-label">Contact</span>
+          <h2 class="section-title">Let's Work Together</h2>
+          <p class="section-subtitle">Have a project in mind, an opportunity, or just want to connect? I'd love to hear from you.</p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Contact Info Column -->
+          <div class="fade-in-left">
+            <h3 style="font-family:var(--font-heading);font-size:1.3rem;margin-bottom:8px;">Get In Touch</h3>
+            <p style="color:var(--text-secondary);margin-bottom:32px;line-height:1.8;">
+              I'm currently open to internship and full-time software engineering / data roles. Feel free to reach out directly through any of the channels below or use the message form.
+            </p>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" style="background:rgba(249,115,22,0.1);border-color:rgba(249,115,22,0.2);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="contact-info-text">
+                <h4>Email</h4>
+                <p><a href="mailto:lokhnadhgembali@gmail.com" style="color:var(--accent);">lokhnadhgembali@gmail.com</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" style="background:rgba(251,146,60,0.1);border-color:rgba(251,146,60,0.2);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-light)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                </svg>
+              </div>
+              <div class="contact-info-text">
+                <h4>Phone</h4>
+                <p><a href="tel:+916305551901" style="color:var(--accent-light);">+91 63055 51901</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" style="background:rgba(56,189,248,0.1);border-color:rgba(56,189,248,0.2);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#38bdf8" stroke-width="2">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </div>
+              <div class="contact-info-text">
+                <h4>LinkedIn</h4>
+                <p><a href="https://www.linkedin.com/in/lokhnadh/" target="_blank" style="color:#38bdf8;">linkedin.com/in/lokhnadh</a></p>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon" style="background:rgba(16,185,129,0.1);border-color:rgba(16,185,129,0.2);">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent-green)" stroke-width="2">
+                  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
+                </svg>
+              </div>
+              <div class="contact-info-text">
+                <h4>GitHub</h4>
+                <p><a href="https://github.com/lokhnadhgembali" target="_blank" style="color:var(--accent-green);">github.com/lokhnadhgembali</a></p>
+              </div>
+            </div>
+
+            <div style="margin-top:32px;padding:24px;background:var(--bg-glass);border:1px solid var(--bg-glass-border);border-radius:var(--radius-lg);">
+              <h4 style="font-size:0.95rem;font-weight:600;margin-bottom:12px;">Quick Actions</h4>
+              <div style="display:flex;flex-direction:column;gap:12px;">
+                <a href="mailto:lokhnadhgembali@gmail.com?subject=Job Opportunity" class="btn btn-secondary" style="justify-content:center;">
+                  💼 Discuss Job Opportunity
+                </a>
+                <a href="mailto:lokhnadhgembali@gmail.com?subject=Project Collaboration" class="btn btn-secondary" style="justify-content:center;">
+                  🤝 Project Collaboration
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact Form Column -->
+          <div class="fade-in-right">
+            <div class="card">
+              <h3 style="font-family:var(--font-heading);font-size:1.2rem;margin-bottom:4px;">Send a Message</h3>
+              <p style="font-size:0.9rem;color:var(--text-secondary);margin-bottom:24px;">Fill out the form below and I'll get back to you as soon as possible.</p>
+
+              <form id="contactForm">
+                <input type="hidden" name="access_key" value="3aba3b56-1e09-40ea-a899-e0f2fb8965b9">
+                <input type="hidden" name="from_name" value="Gembali Lokhnadh Portfolio">
+                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                <div class="grid-2" style="gap:16px;">
+                  <div class="form-group">
+                    <label class="form-label" for="formName">Full Name *</label>
+                    <input type="text" class="form-input" id="formName" name="name" placeholder="John Doe" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="formEmail">Email Address *</label>
+                    <input type="email" class="form-input" id="formEmail" name="email" placeholder="john@example.com" required>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="formSubject">Subject *</label>
+                  <input type="text" class="form-input" id="formSubject" name="subject" placeholder="What's this about?" required>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="formMessage">Message *</label>
+                  <textarea class="form-textarea" id="formMessage" name="message" placeholder="Tell me more about your project or opportunity..." required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary" id="submitBtn" style="width:100%;justify-content:center;">
+                  <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="22" y1="2" x2="11" y2="13" />
+                    <polygon points="22 2 15 22 11 13 2 9 22 2" />
+                  </svg>
+                  <span class="btn-text">Send Message</span>
+                </button>
+
+                <div class="success-message" id="successMessage">
+                  ✅ Thank you! Your message has been sent successfully. I'll get back to you soon!
+                </div>
+                <div class="error-message" id="errorMessage" style="display:none;color:#ef4444;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.2);padding:12px;border-radius:8px;margin-top:16px;font-size:0.9rem;text-align:center;">
+                  ❌ Oops! Something went wrong. Please try again later or email me directly.
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -224,8 +1024,8 @@
 
   </div>
 
-  <script src="js/nav.js?v=3.0"></script>
-  <script src="js/main.js?v=3.0"></script>
+  <script src="js/nav.js?v=4.0"></script>
+  <script src="js/main.js?v=4.0"></script>
 </body>
 
 </html>

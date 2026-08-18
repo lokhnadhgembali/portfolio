@@ -1,22 +1,19 @@
 // ========================================
 // NAVIGATION COMPONENT
-// Dynamic nav bar, footer, theme toggle, scroll progress
+// Single-page navigation, scrollspy, footer, theme toggle, scroll progress
 // ========================================
 
 (function () {
   const navPages = [
-    { name: 'Home',           href: 'index.html' },
-    { name: 'About',          href: 'about.html' },
-    { name: 'Skills',         href: 'skills.html' },
-    { name: 'Projects',       href: 'projects.html' },
-    { name: 'Education',      href: 'education.html' },
-    { name: 'Certifications', href: 'certifications.html' },
-    { name: 'Resume',         href: 'resume.html' },
-    { name: 'Contact',        href: 'contact.html' }
+    { name: 'Home',           href: '#hero' },
+    { name: 'About',          href: '#about' },
+    { name: 'Skills',         href: '#skills' },
+    { name: 'Projects',       href: '#projects' },
+    { name: 'Education',      href: '#education' },
+    { name: 'Certifications', href: '#certifications' },
+    { name: 'Resume',         href: '#resume' },
+    { name: 'Contact',        href: '#contact' }
   ];
-
-  const rawPage = window.location.pathname.split('/').pop() || 'index.html';
-  const currentPage = rawPage.replace(/\.html$/, '') || 'index';
 
   // ===== THEME =====
   function getTheme() {
@@ -27,7 +24,6 @@
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('portfolio-theme', theme);
     updateThemeIcon(theme);
-    updateNavbarBg(theme);
   }
 
   function updateThemeIcon(theme) {
@@ -44,11 +40,6 @@
   function toggleTheme() {
     const current = getTheme();
     applyTheme(current === 'dark' ? 'light' : 'dark');
-  }
-
-  function updateNavbarBg(theme) {
-    // Theme-aware styling is handled via CSS variables
-    // Scroll effect is handled by .scrolled class toggle
   }
 
   // ===== CREATE SCROLL PROGRESS BAR =====
@@ -71,9 +62,8 @@
     nav.className = 'navbar';
     nav.id = 'navbar';
 
-    const linksHTML = navPages.map(page => {
-      const pageSlug = page.href.replace(/\.html$/, '') || 'index';
-      const isActive = currentPage === pageSlug;
+    const linksHTML = navPages.map((page, index) => {
+      const isActive = index === 0;
       return `<a href="${page.href}" class="${isActive ? 'active' : ''}">
         <span class="nav-label-window">
           <span class="nav-label-copy">${page.name}</span>
@@ -84,7 +74,7 @@
 
     nav.innerHTML = `
       <div class="container">
-        <a href="index.html" class="nav-logo">GL.</a>
+        <a href="#hero" class="nav-logo">GL.</a>
         <div class="nav-right">
           <div class="nav-links" id="navLinks">
             ${linksHTML}
@@ -122,13 +112,14 @@
     // Mobile toggle
     const toggle = document.getElementById('navToggle');
     const links = document.getElementById('navLinks');
+    const navAnchors = links.querySelectorAll('a');
 
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('active');
       links.classList.toggle('open');
     });
 
-    links.querySelectorAll('a').forEach(link => {
+    navAnchors.forEach(link => {
       let active = false;
       let animating = false;
       let pending = null;
@@ -164,9 +155,19 @@
       link.addEventListener('focus', () => requestActive(true));
       link.addEventListener('blur', () => requestActive(false));
 
-      link.addEventListener('click', () => {
-        toggle.classList.remove('active');
-        links.classList.remove('open');
+      link.addEventListener('click', (e) => {
+        const targetId = link.getAttribute('href');
+        if (targetId && targetId.startsWith('#')) {
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            e.preventDefault();
+            toggle.classList.remove('active');
+            links.classList.remove('open');
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+            navAnchors.forEach(a => a.classList.remove('active'));
+            link.classList.add('active');
+          }
+        }
       });
     });
 
@@ -188,6 +189,52 @@
         }
       }
     }, { passive: true });
+
+    // Scrollspy with IntersectionObserver
+    initScrollspy(navAnchors);
+  }
+
+  // ===== SCROLLSPY =====
+  function initScrollspy(navAnchors) {
+    const sectionIds = navPages.map(p => p.href.replace('#', '')).filter(Boolean);
+    const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const activeId = '#' + entry.target.id;
+          navAnchors.forEach(a => {
+            if (a.getAttribute('href') === activeId) {
+              a.classList.add('active');
+            } else {
+              a.classList.remove('active');
+            }
+          });
+        }
+      });
+    }, {
+      rootMargin: '-30% 0px -50% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(sec => observer.observe(sec));
+  }
+
+  // ===== RESUME TABS =====
+  function initResumeTabs() {
+    const tabBtns = document.querySelectorAll('.rtab-btn');
+    const tabPanels = document.querySelectorAll('.resume-tab-panel');
+
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = btn.dataset.tab;
+        tabBtns.forEach(b => b.classList.remove('active'));
+        tabPanels.forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        const panel = document.getElementById('tab-' + target);
+        if (panel) panel.classList.add('active');
+      });
+    });
   }
 
   // ===== CREATE FOOTER =====
@@ -234,7 +281,6 @@
   }
 
   // ===== INITIALIZE =====
-  // Apply theme immediately (before DOMContentLoaded) to avoid flash
   applyTheme(getTheme());
 
   function initNav() {
@@ -242,7 +288,7 @@
     createScrollProgress();
     createNav();
     createFooter();
-    // Re-apply theme icons after nav is created
+    initResumeTabs();
     applyTheme(getTheme());
   }
 
