@@ -11,7 +11,6 @@
     { name: 'Projects',       href: '#projects' },
     { name: 'Education',      href: '#education' },
     { name: 'Certifications', href: '#certifications' },
-    { name: 'Resume',         href: '#resume' },
     { name: 'Contact',        href: '#contact' }
   ];
 
